@@ -82,18 +82,21 @@
             text-align: center;
         }
         /* Specific height for the dynamically generated images */
-        #what-we-do-image-container {
-            height: 600px; /* Increased height for the family image */
+        #what-we-do-image-container .image-content { /* Added .image-content for the actual image/spinner container */
+            max-width: 400px; /* Adjusted for portrait image */
+            height: auto; /* Adjusted for portrait image */
+            margin: 0 auto; /* Center the image */
         }
         #what-we-do-image-container img {
             width: 100%;
-            height: 100%;
-            object-fit: cover; /* Cover the area, maintaining aspect ratio */
+            height: auto; /* Ensure height scales with width */
+            object-fit: contain; /* Ensure the whole image is visible without cropping */
         }
         /* Height for the static image in "YOUR HOME LOAN PARTNER" section */
         #home-loan-partner-image-container {
-            height: 300px; /* Consistent height with the other dynamic image */
-            width: 100%;
+            max-width: 400px; /* Adjusted for portrait image */
+            height: auto; /* Adjusted for portrait image */
+            margin: 0 auto; /* Center the image */
             object-fit: cover;
             border-radius: 0.5rem;
             display: flex; /* Use flex for centering spinner */
@@ -103,8 +106,8 @@
         }
         #home-loan-partner-image-container img {
             width: 100%;
-            height: 100%;
-            object-fit: cover;
+            height: auto; /* Ensure height scales with width */
+            object-fit: contain; /* Ensure the whole image is visible without cropping */
             border-radius: 0.5rem;
         }
 
@@ -357,9 +360,11 @@
     <section class="py-16 bg-white">
         <div class="container mx-auto px-4 text-center max-w-3xl">
             <h2 class="text-3xl font-bold text-gray-800 mb-6">YOUR HOME LOAN PARTNER IN EAST TEXAS</h2>
-            <!-- Image for this section, dynamically generated -->
+            <!-- Image for this section -->
             <div id="home-loan-partner-image-container" class="mx-auto mb-6">
-                <div class="loading-spinner"></div> <!-- Loading spinner -->
+                <a href="#what-we-do-image-container" class="smooth-scroll block">
+                    <img src="https://github.com/verbatim37/tylermortgage/blob/main/Tyler_today_1_magazine-ad_jeanna.hill_-p9h9omqqi4bs9xeoo4tnrsn3rozoyj1mce2rj5p9pg.png?raw=true" alt="Mortgage loan officer assisting client with transaction in East Texas. Keywords: tylerhomemortgage.com, tylermortgage.com, homeloantyler.com, mortgagetyler.com, tylerlender.com" class="w-full h-full object-cover rounded-lg">
+                </a>
             </div>
             <p class="text-lg text-gray-700 mb-4">
                 We help East Texas homebuyers achieve their dream of homeownership. With the right products and quality service, we partner with you throughout the home loan process.
@@ -483,12 +488,12 @@
     </section>
 
     <!-- What We Do Section -->
-    <section class="py-16 bg-gray-900 text-white">
+    <section id="what-we-do-section" class="py-16 bg-gray-900 text-white">
         <div class="container mx-auto px-4 text-center max-w-3xl">
             <h2 class="text-3xl font-bold mb-6">What We Do for East Texas Homebuyers</h2>
-            <!-- Image for this section, dynamically generated -->
-            <div id="what-we-do-image-container" class="image-placeholder mx-auto mb-6">
-                <div class="loading-spinner"></div> <!-- Loading spinner -->
+            <!-- Image for this section -->
+            <div id="what-we-do-image-container" class="mx-auto mb-6">
+                <img src="https://github.com/verbatim37/tylermortgage/blob/main/happyfamilymortgage.png?raw=true" alt="Happy family celebrating their first home in East Texas, a dream come true with Tyler Mortgage. Keywords: buyhometyler.com, tylerhomemortgage.com, tyler.loans, tylermortgage.com, homeloantyler.com, mortgagetyler.com" class="w-full h-full object-contain rounded-lg">
             </div>
             <p class="text-lg">
                 We help East Texas homebuyers achieve the American Dream. Whether you're a first-time buyer or purchasing a second home, Mortgage Financial Services, LLC provides quality service and products to guide you through the home buying process. Dream big, and let us handle the details!
@@ -805,114 +810,8 @@
 
             // Initialize CAPTCHA on page load
             generateCaptcha();
-            generateHappyFamilyImage(); // Call image generation for "What We Do" section
-            generateHeroBackground(); // Call image generation for hero background
-            generateMortgageTransactionImage(); // Call image generation for mortgage transaction image
+            // Hero background and Mortgage transaction image are now static, no need to generate
         });
-
-        // Function to generate the happy family image for "What We Do" section
-        async function generateHappyFamilyImage() {
-            const imageContainer = document.getElementById('what-we-do-image-container');
-            imageContainer.innerHTML = '<div class="loading-spinner mx-auto"></div>'; // Show spinner
-
-            const prompt = "a happy family getting their first home, joyful, excited, warm lighting, photorealistic";
-            const apiKey = ""; // API key will be provided by Canvas runtime
-
-            const payload = {
-                instances: { prompt: prompt },
-                parameters: { "sampleCount": 1, "aspectRatio": "16:9" } /* Added aspect ratio for better composition */
-            };
-
-            const apiUrl = `https://generativelanguage.googleapis.com/v1beta/models/imagen-3.0-generate-002:predict?key=${apiKey}`;
-
-            try {
-                const response = await fetch(apiUrl, {
-                    method: 'POST',
-                    headers: { 'Content-Type': 'application/json' },
-                    body: JSON.stringify(payload)
-                });
-                const result = await response.json();
-
-                if (result.predictions && result.predictions.length > 0 && result.predictions[0].bytesBase64Encoded) {
-                    const imageUrl = `data:image/png;base64,${result.predictions[0].bytesBase64Encoded}`;
-                    imageContainer.innerHTML = `<img src="${imageUrl}" alt="Happy family celebrating their first home in East Texas, a dream come true with Tyler Mortgage. Keywords: buyhometyler.com, tylerhomemortgage.com, tyler.loans, tylermortgage.com, homeloantyler.com, mortgagetyler.com" class="w-full h-full object-cover rounded-lg">`;
-                } else {
-                    imageContainer.innerHTML = '<div class="image-placeholder mx-auto mb-6">Image generation failed.</div>';
-                    console.error('Image generation failed: No valid predictions or bytesBase64Encoded found.', result);
-                }
-            } catch (error) {
-                imageContainer.innerHTML = '<div class="image-placeholder mx-auto mb-6">Error generating image.</div>';
-                console.error('Error fetching image:', error);
-            }
-        }
-
-        // Function to generate the hero section background image
-        async function generateHeroBackground() {
-            const heroSection = document.getElementById('hero-section-background');
-            const prompt = "A vibrant, photorealistic image of the Texas flag waving proudly outdoors, with a clear blue sky and subtle, sunlit landscape in the background, suitable for a website hero banner.";
-            const apiKey = ""; 
-
-            const payload = {
-                instances: { prompt: prompt },
-                parameters: { "sampleCount": 1, "aspectRatio": "16:9" }
-            };
-
-            const apiUrl = `https://generativelanguage.googleapis.com/v1beta/models/imagen-3.0-generate-002:predict?key=${apiKey}`;
-
-            try {
-                const response = await fetch(apiUrl, {
-                    method: 'POST',
-                    headers: { 'Content-Type': 'application/json' },
-                    body: JSON.stringify(payload)
-                });
-                const result = await response.json();
-
-                if (result.predictions && result.predictions.length > 0 && result.predictions[0].bytesBase64Encoded) {
-                    const imageUrl = `data:image/png;base64,${result.predictions[0].bytesBase64Encoded}`;
-                    heroSection.style.backgroundImage = `linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('${imageUrl}')`;
-                } else {
-                    console.error('Hero background image generation failed: No valid predictions or bytesBase64Encoded found.', result);
-                }
-            } catch (error) {
-                console.error('Error fetching hero background image:', error);
-            }
-        }
-
-        // Function to generate the mortgage transaction image
-        async function generateMortgageTransactionImage() {
-            const imageContainer = document.getElementById('home-loan-partner-image-container');
-            imageContainer.innerHTML = '<div class="loading-spinner mx-auto"></div>'; // Show spinner
-
-            const prompt = "A photorealistic image of a friendly mortgage loan officer actively assisting a diverse client at a modern desk, reviewing documents, with a warm, professional atmosphere. Focus on clear interaction and trust.";
-            const apiKey = ""; 
-
-            const payload = {
-                instances: { prompt: prompt },
-                parameters: { "sampleCount": 1, "aspectRatio": "16:9" }
-            };
-
-            const apiUrl = `https://generativelanguage.googleapis.com/v1beta/models/imagen-3.0-generate-002:predict?key=${apiKey}`;
-
-            try {
-                const response = await fetch(apiUrl, {
-                    method: 'POST',
-                    headers: { 'Content-Type': 'application/json' },
-                    body: JSON.stringify(payload)
-                });
-                const result = await response.json();
-
-                if (result.predictions && result.predictions.length > 0 && result.predictions[0].bytesBase64Encoded) {
-                    const imageUrl = `data:image/png;base64,${result.predictions[0].bytesBase64Encoded}`;
-                    imageContainer.innerHTML = `<img src="${imageUrl}" alt="Mortgage loan officer assisting client with transaction in East Texas. Keywords: tylerhomemortgage.com, tylermortgage.com, homeloantyler.com, mortgagetyler.com, tylerlender.com" class="w-full h-full object-cover rounded-lg">`;
-                } else {
-                    imageContainer.innerHTML = '<div class="image-placeholder mx-auto mb-6">Image generation failed.</div>';
-                    console.error('Mortgage transaction image generation failed: No valid predictions or bytesBase64Encoded found.', result);
-                }
-            } catch (error) {
-                imageContainer.innerHTML = '<div class="image-placeholder mx-auto mb-6">Error generating image.</div>';
-                console.error('Error fetching mortgage transaction image:', error);
-            }
-        }
 
         // Function to open a modal
         function openModal(modalId) {
@@ -923,6 +822,9 @@
         function closeModal(modalId) {
             document.getElementById(modalId).classList.remove('active');
         }
+
+        // Set static background image for hero section
+        document.getElementById('hero-section-background').style.backgroundImage = `linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('https://github.com/verbatim37/tylermortgage/blob/main/texas_Flag.jpg?raw=true')`;
     </script>
 </body>
 </html>
