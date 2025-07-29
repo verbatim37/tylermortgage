@@ -27,7 +27,7 @@
         }
         .hero-section {
             /* Background image for Texas flag - will be dynamically loaded by JS */
-            background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), #4b5563; /* Placeholder color, will be overridden */
+            background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('https://github.com/verbatim37/tylermortgage/blob/main/texas_Flag.jpg?raw=true'); /* Directly set the background image here */
             background-size: cover;
             background-position: center center;
             background-repeat: no-repeat;
@@ -817,7 +817,7 @@
             });
         });
 
-        // Accordion Logic and Hero Background
+        // Accordion Logic
         document.addEventListener('DOMContentLoaded', function() {
             const accordionHeaders = document.querySelectorAll('.accordion-header');
 
@@ -827,9 +827,6 @@
                     accordionItem.classList.toggle('active');
                 });
             });
-
-            // Set static background image for hero section
-            document.getElementById('hero-section-background').style.backgroundImage = `linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('https://github.com/verbatim37/tylermortgage/blob/main/texas_Flag.jpg?raw=true')`;
         });
 
         // Web3Forms Form Submission Logic
