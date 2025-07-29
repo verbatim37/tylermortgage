@@ -162,6 +162,58 @@
             0% { transform: rotate(0deg); }
             100% { transform: rotate(360deg); }
         }
+
+        /* Modal styles */
+        .modal-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.7);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 1000;
+            opacity: 0;
+            visibility: hidden;
+            transition: opacity 0.3s ease, visibility 0.3s ease;
+        }
+        .modal-overlay.active {
+            opacity: 1;
+            visibility: visible;
+        }
+        .modal-content {
+            background-color: #ffffff;
+            padding: 2rem;
+            border-radius: 0.5rem;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+            position: relative;
+            max-width: 90%;
+            max-height: 90%;
+            overflow-y: auto;
+            transform: translateY(-20px);
+            transition: transform 0.3s ease;
+        }
+        .modal-overlay.active .modal-content {
+            transform: translateY(0);
+        }
+        .modal-close-button {
+            position: absolute;
+            top: 1rem;
+            right: 1rem;
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+            color: #4a5568;
+        }
+        .modal-iframe {
+            width: 100%;
+            height: 500px; /* Adjust height as needed */
+            border: none;
+            border-radius: 0.5rem;
+        }
     </style>
 </head>
 <body>
@@ -242,16 +294,20 @@
                     <div class="bg-white p-6 rounded-lg shadow-md flex-grow"> <!-- Added flex-grow -->
                         <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
                             <div>
-                                <label for="loanAmount" class="block text-gray-700 text-sm font-medium mb-1">Loan Amount ($)</label>
-                                <input type="number" id="loanAmount" class="input-field" value="250000" min="0">
+                                <label for="mortgageAmount" class="block text-gray-700 text-sm font-medium mb-1">Mortgage Amount ($)</label>
+                                <input type="number" id="mortgageAmount" class="input-field" value="250000" min="0">
+                            </div>
+                            <div>
+                                <label for="downPayment" class="block text-gray-700 text-sm font-medium mb-1">Down Payment ($)</label>
+                                <input type="number" id="downPayment" class="input-field" value="50000" min="0">
                             </div>
                             <div>
                                 <label for="interestRate" class="block text-gray-700 text-sm font-medium mb-1">Interest Rate (%)</label>
                                 <input type="number" id="interestRate" class="input-field" value="4.5" step="0.01" min="0">
                             </div>
                             <div>
-                                <label for="loanTerm" class="block text-gray-700 text-sm font-medium mb-1">Loan Term (Years)</label>
-                                <input type="number" id="loanTerm" class="input-field" value="30" min="1">
+                                <label for="amortizationPeriod" class="block text-gray-700 text-sm font-medium mb-1">Amortization Period (years)</label>
+                                <input type="number" id="amortizationPeriod" class="input-field" value="30" min="1">
                             </div>
                             <div class="md:col-span-2 flex justify-between space-x-4">
                                 <button id="calculateMortgage" class="btn-primary flex-grow py-2">Calculate</button>
@@ -321,9 +377,22 @@
             <p class="text-lg mb-8">
                 Hear what our satisfied clients in East Texas have to say about their home loan experience with us!
             </p>
-            <a href="https://pro.experience.com/pages/jeanna-hill-127342" target="_blank" class="btn-primary inline-block text-lg">
+            <button onclick="openModal('testimonialsModal')" class="btn-primary inline-block text-lg">
                 View Testimonials
-            </a>
+            </button>
+        </div>
+    </section>
+
+    <!-- Information Resources Section -->
+    <section class="py-16 bg-gray-100">
+        <div class="container mx-auto px-4 text-center max-w-3xl">
+            <h2 class="text-3xl font-bold text-gray-800 mb-6">Information Resources</h2>
+            <p class="text-lg text-gray-700 mb-8">
+                Access helpful guides and checklists to navigate your homebuying journey.
+            </p>
+            <button onclick="openModal('resourcesModal')" class="btn-primary inline-block text-lg">
+                View Resources
+            </button>
         </div>
     </section>
 
@@ -562,6 +631,69 @@
         </div>
     </footer>
 
+    <!-- Modals -->
+    <!-- Testimonials Modal -->
+    <div id="testimonialsModal" class="modal-overlay">
+        <div class="modal-content">
+            <button class="modal-close-button" onclick="closeModal('testimonialsModal')">&times;</button>
+            <h3 class="text-2xl font-bold text-gray-800 mb-4">Client Testimonials</h3>
+            <iframe id="testimonialsIframe" class="modal-iframe" src="https://pro.experience.com/pages/jeanna-hill-127342"></iframe>
+        </div>
+    </div>
+
+    <!-- Resources Modal -->
+    <div id="resourcesModal" class="modal-overlay">
+        <div class="modal-content">
+            <button class="modal-close-button" onclick="closeModal('resourcesModal')">&times;</button>
+            <h3 class="text-2xl font-bold text-gray-800 mb-4">Information Resources</h3>
+            <div class="text-gray-700 text-left space-y-6">
+                <div>
+                    <h4 class="text-xl font-semibold mb-2">STEP-BY-STEP MORTGAGE GUIDE</h4>
+                    <p class="mb-3">Provided by Freddie Mac, in this guide, you will learn about one of the most important steps in the homebuying process—obtaining a mortgage. The materials in this guide will take you from application to closing, and they’ll even address the first months of homeownership to show you the kinds of things you need to do to keep your home. Knowing what to expect will give you the confidence you need to make the best decisions about your home purchase.</p>
+                    <a href="https://sf.freddiemac.com/content/_assets/resources/pdf/update/step_by_step_mortgage_guide_english.pdf" target="_blank" class="btn-primary inline-block text-sm">
+                        Access Guide
+                    </a>
+                </div>
+                <div>
+                    <h4 class="text-xl font-semibold mb-2">CHECKLIST FOR LOAN APPLICANTS</h4>
+                    <p class="mb-3">When you apply for a loan, you typically need to provide quite a bit of information to your lender. This allows your lender to verify your income and assets. Start gathering this information when you decide to buy a home so that your mortgage application processing will go as quickly as possible. This checklist will help you pull together what you need:</p>
+                    <ul class="list-disc list-inside space-y-1 ml-4">
+                        <li>W-2 forms from the previous two years, if you collect a paycheck</li>
+                        <li>Recent paycheck stubs (30 days)</li>
+                        <li>Federal tax returns for the past two years (include all schedules and pages)</li>
+                        <li>Most recent 2-months bank statements, all pages (please do not send screen shots)</li>
+                        <li>Most recent 401K statement, if applicable</li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="text-xl font-semibold mb-2">MAINTAIN YOUR FICO SCORE</h4>
+                    <p class="mb-3">Your FICO score is what most lenders use to calculate your credit risk. They use it to decide whether to offer credit to potential borrowers and at what interest rate. It is made up of 5 elements:</p>
+                    <ul class="list-disc list-inside space-y-1 ml-4 mb-3">
+                        <li><span class="font-bold">Payment History:</span> (35% of the total credit score) Included is the borrower’s payment history with the repayment of past debt the most important factor.</li>
+                        <li><span class="font-bold">Credit Utilization:</span> (30% of the total credit score) This is the percentage of available credit that has been borrowed.</li>
+                        <li><span class="font-bold">Length of Credit History:</span> (15% of the total credit score) This is the length of time each account has been open and the length of time since the account’s most recent action.</li>
+                        <li><span class="font-bold">New Credit:</span> (10% of the total credit score) Borrowers should avoid opening too many credit lines at the same time.</li>
+                        <li><span class="font-bold">Credit Mix:</span> (10% of the total credit score) This is the combination of different types of credit such as revolving and installment.</li>
+                    </ul>
+                    <p class="font-bold mb-2">Tips for Maintaining or Repairing Your FICO Credit Score:</p>
+                    <ul class="list-disc list-inside space-y-1 ml-4">
+                        <li>Check your credit report to make sure that there is no incorrect information in it such as late payments incorrectly listed and that amounts owed are correct. If there are errors, dispute them with the credit bureau.</li>
+                        <li>Setup payment reminders. Making payments on time is one of the most important factors in calculating the credit score.</li>
+                        <li>Consider enrolling in automatic payments through your credit card and loan providers to have payments debited from your bank account to ensure that payments are timely.</li>
+                        <li>Reduce your amount of debt. The first step is to stop using your credit cards. Analyze what accounts are charging the highest interest rates and attach paying those off first.</li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="text-xl font-semibold mb-2">HUD HOMEBUYER'S TOOLKIT</h4>
+                    <p class="mb-3">To help protect consumers, the Consumer Protection Bureau has developed this toolkit to assist homebuyers in the home-buying process. This publication will help you make the most of your mortgage, and help you decide on the best home loan product for you.</p>
+                    <a href="https://files.consumerfinance.gov/f/201503_cfpb_your-home-loan-toolkit-web.pdf" target="_blank" class="btn-primary inline-block text-sm">
+                        Access Toolkit
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+
     <script>
         // Set current year in footer
         document.getElementById('current-year').textContent = new Date().getFullYear(); 
@@ -610,23 +742,30 @@
 
         // Mortgage Calculator Logic
         document.getElementById('calculateMortgage').addEventListener('click', function() {
-            const loanAmount = parseFloat(document.getElementById('loanAmount').value);
+            const mortgageAmount = parseFloat(document.getElementById('mortgageAmount').value);
+            const downPayment = parseFloat(document.getElementById('downPayment').value);
             const interestRate = parseFloat(document.getElementById('interestRate').value);
-            const loanTerm = parseFloat(document.getElementById('loanTerm').value);
+            const amortizationPeriod = parseFloat(document.getElementById('amortizationPeriod').value);
 
-            if (isNaN(loanAmount) || isNaN(interestRate) || isNaN(loanTerm) || loanAmount <= 0 || interestRate < 0 || loanTerm <= 0) {
+            if (isNaN(mortgageAmount) || isNaN(downPayment) || isNaN(interestRate) || isNaN(amortizationPeriod) || mortgageAmount <= 0 || interestRate < 0 || amortizationPeriod <= 0 || downPayment < 0) {
                 document.getElementById('monthlyPayment').innerText = 'Invalid Input';
                 return;
             }
 
+            const loanPrincipal = mortgageAmount - downPayment;
+            if (loanPrincipal <= 0) {
+                document.getElementById('monthlyPayment').innerText = 'Invalid Loan Amount';
+                return;
+            }
+
             const monthlyInterestRate = (interestRate / 100) / 12;
-            const numberOfPayments = loanTerm * 12;
+            const numberOfPayments = amortizationPeriod * 12;
 
             let monthlyPayment;
             if (monthlyInterestRate === 0) {
-                monthlyPayment = loanAmount / numberOfPayments;
+                monthlyPayment = loanPrincipal / numberOfPayments;
             } else {
-                monthlyPayment = loanAmount * (monthlyInterestRate * Math.pow(1 + monthlyInterestRate, numberOfPayments)) / (Math.pow(1 + monthlyInterestRate, numberOfPayments) - 1);
+                monthlyPayment = loanPrincipal * (monthlyInterestRate * Math.pow(1 + monthlyInterestRate, numberOfPayments)) / (Math.pow(1 + monthlyInterestRate, numberOfPayments) - 1);
             }
 
             document.getElementById('monthlyPayment').innerText = `$${monthlyPayment.toFixed(2)}`;
@@ -634,9 +773,10 @@
 
         // Clear Mortgage Calculator Fields
         document.getElementById('clearMortgage').addEventListener('click', function() {
-            document.getElementById('loanAmount').value = '250000';
+            document.getElementById('mortgageAmount').value = '250000';
+            document.getElementById('downPayment').value = '50000';
             document.getElementById('interestRate').value = '4.5';
-            document.getElementById('loanTerm').value = '30';
+            document.getElementById('amortizationPeriod').value = '30';
             document.getElementById('monthlyPayment').innerText = '$0.00';
         });
 
@@ -769,7 +909,16 @@
                 console.error('Error fetching mortgage transaction image:', error);
             }
         }
+
+        // Function to open a modal
+        function openModal(modalId) {
+            document.getElementById(modalId).classList.add('active');
+        }
+
+        // Function to close a modal
+        function closeModal(modalId) {
+            document.getElementById(modalId).classList.remove('active');
+        }
     </script>
 </body>
 </html>
-    
