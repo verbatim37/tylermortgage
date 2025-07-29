@@ -90,17 +90,6 @@
             overflow: hidden; /* Ensure text doesn't overflow */
             text-align: center;
         }
-        /* Specific height for the dynamically generated images */
-        #what-we-do-image-container .image-content { /* Added .image-content for the actual image/spinner container */
-            max-width: 400px; /* Adjusted for portrait image */
-            height: auto; /* Adjusted for portrait image */
-            margin: 0 auto; /* Center the image */
-        }
-        #what-we-do-image-container img {
-            width: 100%;
-            height: auto; /* Ensure height scales with width */
-            object-fit: contain; /* Ensure the whole image is visible without cropping */
-        }
         /* Height for the static image in "YOUR HOME LOAN PARTNER" section */
         #home-loan-partner-image-container {
             max-width: 400px; /* Adjusted for portrait image */
@@ -117,6 +106,14 @@
             width: 100%;
             height: auto; /* Ensure height scales with width */
             object-fit: contain; /* Ensure the whole image is visible without cropping */
+            border-radius: 0.5rem;
+        }
+
+        /* Specific height for the two images in "What We Do" section */
+        .what-we-do-image {
+            width: 100%;
+            height: 250px; /* Fixed height for consistent appearance */
+            object-fit: cover; /* Cover ensures image fills the space without distortion */
             border-radius: 0.5rem;
         }
 
@@ -498,9 +495,10 @@
     <section id="what-we-do-section" class="py-16 bg-gray-900 text-white">
         <div class="container mx-auto px-4 text-center max-w-3xl">
             <h2 class="text-3xl font-bold mb-6">What We Do for East Texas Homebuyers</h2>
-            <!-- Image for this section -->
-            <div id="what-we-do-image-container" class="mx-auto mb-6">
-                <img src="https://github.com/verbatim37/tylermortgage/blob/main/happyfamilymortgage.png?raw=true" alt="Happy family celebrating their first home in East Texas, a dream come true with Tyler Mortgage. Keywords: buyhometyler.com, tylerhomemortgage.com, tyler.loans, tylermortgage.com, homeloantyler.com, mortgagetyler.com" class="w-full h-auto object-contain rounded-lg">
+            <!-- Image for this section - now two images side-by-side -->
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mx-auto mb-6">
+                <img src="https://github.com/verbatim37/tylermortgage/blob/main/happyfamilymortgage.png?raw=true" alt="Happy family celebrating their first home in East Texas" class="what-we-do-image">
+                <img src="https://github.com/verbatim37/tylermortgage/blob/main/happyfamilymortgage2.png?raw=true" alt="Family looking at new home in East Texas" class="what-we-do-image">
             </div>
             <p class="text-lg">
                 We help East Texas homebuyers achieve the American Dream. Whether you're a first-time buyer or purchasing a second home, Mortgage Financial Services, LLC provides quality service and products to guide you through the home buying process. Dream big, and let us handle the details!
