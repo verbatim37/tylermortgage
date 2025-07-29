@@ -450,7 +450,7 @@
                     </div>
                     <div class="accordion-content">
                         <p class="text-gray-700 mb-2">
-                            Consolidate debt or get cash from your home equity. Refinance for a higher amount and receive the difference in cash, ideal for home improvements, education, or other major expenses.
+                            Consolidate high-interest debt, fund home improvements, pay for education, or cover major expenses. Refinance for a higher amount and receive the difference in cash, leveraging your home equity. <a href="#home-equity-cash-out-section" class="text-red-600 hover:underline smooth-scroll">Learn more about Home Equity Cash-Out Loans.</a>
                         </p>
                     </div>
                 </div>
@@ -495,6 +495,62 @@
             <p class="text-lg">
                 We help East Texas homebuyers achieve the American Dream. Whether you're a first-time buyer or purchasing a second home, Mortgage Financial Services, LLC provides quality service and products to guide you through the home buying process. Dream big, and let us handle the details!
             </p>
+        </div>
+    </section>
+
+    <!-- Home Equity Cash-Out Loans Section -->
+    <section id="home-equity-cash-out-section" class="py-16 bg-red-700 text-white">
+        <div class="container mx-auto px-4 text-center max-w-5xl">
+            <div class="text-5xl mb-4">💰</div> <!-- Money bag emoji icon -->
+            <h2 class="text-3xl font-bold mb-6">Unlock Your Home's Potential with a Cash-Out Loan</h2>
+            <p class="text-lg mb-8">
+                A Home Equity Cash-Out Loan allows you to convert a portion of your home's equity into liquid cash. This is a powerful financial tool that can help you achieve various goals by leveraging the value you've built in your property.
+            </p>
+            <h3 class="text-2xl font-semibold mb-6">What Can You Use Your Cash-Out For?</h3>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <!-- Card 1: Debt Consolidation -->
+                <div class="bg-white text-gray-800 p-6 rounded-lg shadow-md flex flex-col items-center text-center">
+                    <div class="text-4xl mb-3">💳</div>
+                    <h4 class="font-bold text-xl mb-2">Debt Consolidation</h4>
+                    <p class="text-base">Pay off high-interest credit card debt, personal loans, or other bills, potentially lowering your monthly payments and saving on interest.</p>
+                </div>
+                <!-- Card 2: Home Improvements -->
+                <div class="bg-white text-gray-800 p-6 rounded-lg shadow-md flex flex-col items-center text-center">
+                    <div class="text-4xl mb-3">🏡</div>
+                    <h4 class="font-bold text-xl mb-2">Home Improvements</h4>
+                    <p class="text-base">Fund major renovations, additions, or repairs to increase your home's value and enhance your living space.</p>
+                </div>
+                <!-- Card 3: Education Expenses -->
+                <div class="bg-white text-gray-800 p-6 rounded-lg shadow-md flex flex-col items-center text-center">
+                    <div class="text-4xl mb-3">🎓</div>
+                    <h4 class="font-bold text-xl mb-2">Education Expenses</h4>
+                    <p class="text-base">Cover tuition fees, student loans, or other educational costs for yourself or your family.</p>
+                </div>
+                <!-- Card 4: Major Purchases -->
+                <div class="bg-white text-gray-800 p-6 rounded-lg shadow-md flex flex-col items-center text-center">
+                    <div class="text-4xl mb-3">🛒</div>
+                    <h4 class="font-bold text-xl mb-2">Major Purchases</h4>
+                    <p class="text-base">Finance significant expenses like a new car, a wedding, or a dream vacation.</p>
+                </div>
+                <!-- Card 5: Investment Opportunities -->
+                <div class="bg-white text-gray-800 p-6 rounded-lg shadow-md flex flex-col items-center text-center">
+                    <div class="text-4xl mb-3">📈</div>
+                    <h4 class="font-bold text-xl mb-2">Investment Opportunities</h4>
+                    <p class="text-base">Use the funds for other investments, potentially growing your wealth.</p>
+                </div>
+                <!-- Card 6: Emergency Funds -->
+                <div class="bg-white text-gray-800 p-6 rounded-lg shadow-md flex flex-col items-center text-center">
+                    <div class="text-4xl mb-3">🚨</div>
+                    <h4 class="font-bold text-xl mb-2">Emergency Funds</h4>
+                    <p class="text-base">Create a financial safety net for unexpected life events.</p>
+                </div>
+            </div>
+            <p class="text-lg mt-8">
+                Ready to explore how a cash-out loan can benefit you? Contact us today to learn more!
+            </p>
+            <a href="tel:903-360-1131" class="btn-primary inline-block text-lg mt-6">
+                Get Your Cash-Out Quote!
+            </a>
         </div>
     </section>
 
@@ -745,10 +801,12 @@
         });
 
         // Smooth scroll for top button
-        document.querySelector('.smooth-scroll').addEventListener('click', function(e) {
-            e.preventDefault();
-            document.querySelector(this.getAttribute('href')).scrollIntoView({
-                behavior: 'smooth'
+        document.querySelectorAll('.smooth-scroll').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
             });
         });
 
