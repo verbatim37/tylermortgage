@@ -245,7 +245,8 @@
             Fill out the form below to get started. No obligation, just expert guidance.
         </p>
 
-        <form class="space-y-4" id="mortgageLeadForm">
+        <form class="space-y-4" id="mortgageLeadForm" action="https://api.web3forms.com/submit" method="POST">
+            <input type="hidden" name="access_key" value="da10dde3-0585-4019-8810-ac7491335b23">
             <div>
                 <label for="full-name" class="block text-white text-sm font-medium mb-1">Full Name</label>
                 <input type="text" id="full-name" name="full-name" placeholder="John Doe" class="input-field" required>
@@ -273,12 +274,8 @@
                 <textarea id="message" name="message" rows="4" placeholder="e.g., First-time home buyer, looking for a 30-year fixed rate, etc." class="input-field"></textarea>
             </div>
 
-            <!-- Self-Hosted CAPTCHA -->
-            <div id="captcha-container">
-                <label for="captcha-input" class="block text-white text-sm font-medium mb-1" id="captcha-question"></label>
-                <input type="text" id="captcha-input" name="captcha-input" placeholder="Your answer" class="input-field" required>
-                <p id="captcha-error" class="text-gray-200 text-sm mt-1 hidden">Please answer the CAPTCHA correctly.</p>
-            </div>
+            <!-- Web3Forms will handle spam protection, so no custom CAPTCHA needed -->
+            <div id="form-message" class="text-center text-white text-lg mt-4 hidden"></div>
 
             <button type="submit" class="btn-primary w-full py-3 text-xl">
                 Get Pre-Qualified!
@@ -707,48 +704,6 @@
         // Set current year in footer
         document.getElementById('current-year').textContent = new Date().getFullYear(); 
 
-        // CAPTCHA Logic
-        let captchaAnswer;
-
-        function generateCaptcha() {
-            const num1 = Math.floor(Math.random() * 10) + 1;
-            const num2 = Math.floor(Math.random() * 10) + 1;
-            captchaAnswer = num1 + num2;
-            document.getElementById('captcha-question').innerText = `What is ${num1} + ${num2}?`;
-            document.getElementById('captcha-input').value = ''; // Clear previous input
-            document.getElementById('captcha-error').classList.add('hidden'); // Hide error message
-        }
-
-        document.getElementById('mortgageLeadForm').addEventListener('submit', function(event) {
-            event.preventDefault(); // Prevent default form submission
-
-            const userAnswer = parseInt(document.getElementById('captcha-input').value);
-            if (userAnswer !== captchaAnswer) {
-                document.getElementById('captcha-error').classList.remove('hidden');
-                return; // Stop execution if CAPTCHA is wrong
-            } else {
-                document.getElementById('captcha-error').classList.add('hidden');
-            }
-
-            // Construct mailto link
-            const fullName = document.getElementById('full-name').value;
-            const email = document.getElementById('email').value;
-            const phone = document.getElementById('phone').value;
-            const loanType = document.getElementById('loan-type').value;
-            const message = document.getElementById('message').value;
-
-            const subject = encodeURIComponent(`Mortgage Inquiry from ${fullName}`);
-            const body = encodeURIComponent(
-                `Full Name: ${fullName}\n` +
-                `Email: ${email}\n` +
-                `Phone: ${phone}\n` +
-                `Loan Type: ${loanType}\n` +
-                `Message: ${message}`
-            );
-
-            window.location.href = `mailto:info@resmypc.com?subject=${subject}&body=${body}`;
-        });
-
         // Mortgage Calculator Logic
         document.getElementById('calculateMortgage').addEventListener('click', function() {
             const mortgageAmount = parseFloat(document.getElementById('mortgageAmount').value);
@@ -808,9 +763,56 @@
                 });
             });
 
-            // Initialize CAPTCHA on page load
-            generateCaptcha();
-            // Hero background and Mortgage transaction image are now static, no need to generate
+            // Set static background image for hero section
+            document.getElementById('hero-section-background').style.backgroundImage = `linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('https://github.com/verbatim37/tylermortgage/blob/main/texas_Flag.jpg?raw=true')`;
+        });
+
+        // Web3Forms Form Submission Logic
+        const form = document.getElementById('mortgageLeadForm');
+        const formMessage = document.getElementById('form-message');
+
+        form.addEventListener('submit', async function(event) {
+            event.preventDefault(); // Prevent default form submission
+
+            const formData = new FormData(form);
+            const object = Object.fromEntries(formData);
+            const json = JSON.stringify(object);
+
+            formMessage.classList.remove('hidden', 'text-green-500', 'text-red-500');
+            formMessage.classList.add('text-white'); // Keep text white during loading
+            formMessage.innerText = 'Submitting...';
+
+            try {
+                const response = await fetch('https://api.web3forms.com/submit', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                        'Accept': 'application/json'
+                    },
+                    body: json
+                });
+
+                const result = await response.json();
+
+                if (response.ok) {
+                    formMessage.classList.remove('text-white');
+                    formMessage.classList.add('text-green-500');
+                    formMessage.innerText = 'Thank you! Your message has been sent successfully.';
+                    form.reset(); // Clear the form fields on success
+                } else {
+                    console.error('Web3Forms submission error:', result);
+                    formMessage.classList.remove('text-white');
+                    formMessage.classList.add('text-red-500');
+                    formMessage.innerText = result.message || 'There was an error submitting your form. Please try again.';
+                }
+            } catch (error) {
+                console.error('Network or unexpected error:', error);
+                formMessage.classList.remove('text-white');
+                formMessage.classList.add('text-red-500');
+                formMessage.innerText = 'A network error occurred. Please check your connection and try again.';
+            } finally {
+                formMessage.classList.remove('hidden');
+            }
         });
 
         // Function to open a modal
@@ -822,9 +824,6 @@
         function closeModal(modalId) {
             document.getElementById(modalId).classList.remove('active');
         }
-
-        // Set static background image for hero section
-        document.getElementById('hero-section-background').style.backgroundImage = `linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('https://github.com/verbatim37/tylermortgage/blob/main/texas_Flag.jpg?raw=true')`;
     </script>
 </body>
 </html>
