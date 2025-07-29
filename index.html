@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <!-- Google tag (gtag.js) -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-BSHFM74C4D"></script> 
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-BSHFM74C4D"></script>
     <script>
       window.dataLayer = window.dataLayer || [];
       function gtag(){dataLayer.push(arguments);}
@@ -26,8 +26,8 @@
             background-color: #f8fafc; /* Light gray background */
         }
         .hero-section {
-            /* Background image for Texas flag - will be dynamically loaded */
-            background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), #4b5563; /* Placeholder color */
+            /* Background image for Texas flag - will be dynamically loaded by JS */
+            background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), #4b5563; /* Placeholder color, will be overridden */
             background-size: cover;
             background-position: center center;
             background-repeat: no-repeat;
@@ -817,7 +817,7 @@
             });
         });
 
-        // Accordion Logic
+        // Accordion Logic and Hero Background
         document.addEventListener('DOMContentLoaded', function() {
             const accordionHeaders = document.querySelectorAll('.accordion-header');
 
