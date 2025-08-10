@@ -7,7 +7,7 @@
       function gtag(){dataLayer.push(arguments);}
       gtag('js', new Date());
 
-      gtag('config', 'G-BSHFM74C4D'); 
+      gtag('config', 'G-BSHFM74C4D');
     </script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -295,8 +295,8 @@
                                 <input type="number" id="mortgageAmount" class="input-field" value="250000" min="0">
                             </div>
                             <div>
-                                <label for="downPayment" class="block text-gray-700 text-sm font-medium mb-1">Down Payment ($)</label>
-                                <input type="number" id="downPayment" class="input-field" value="50000" min="0">
+                                <label for="downPayment" class="block text-gray-700 text-sm font-medium mb-1">Down Payment (%)</label>
+                                <input type="number" id="downPaymentPercentage" class="input-field" value="20" min="0" max="100">
                             </div>
                             <div>
                                 <label for="interestRate" class="block text-gray-700 text-sm font-medium mb-1">Interest Rate (%)</label>
@@ -717,16 +717,18 @@
         // Mortgage Calculator Logic
         document.getElementById('calculateMortgage').addEventListener('click', function() {
             const mortgageAmount = parseFloat(document.getElementById('mortgageAmount').value);
-            const downPayment = parseFloat(document.getElementById('downPayment').value);
+            const downPaymentPercentage = parseFloat(document.getElementById('downPaymentPercentage').value);
             const interestRate = parseFloat(document.getElementById('interestRate').value);
             const amortizationPeriod = parseFloat(document.getElementById('amortizationPeriod').value);
 
-            if (isNaN(mortgageAmount) || isNaN(downPayment) || isNaN(interestRate) || isNaN(amortizationPeriod) || mortgageAmount <= 0 || interestRate < 0 || amortizationPeriod <= 0 || downPayment < 0) {
+            if (isNaN(mortgageAmount) || isNaN(downPaymentPercentage) || isNaN(interestRate) || isNaN(amortizationPeriod) || mortgageAmount <= 0 || interestRate < 0 || amortizationPeriod <= 0 || downPaymentPercentage < 0 || downPaymentPercentage > 100) {
                 document.getElementById('monthlyPayment').innerText = 'Invalid Input';
                 return;
             }
 
-            const loanPrincipal = mortgageAmount - downPayment;
+            const downPaymentAmount = mortgageAmount * (downPaymentPercentage / 100);
+            const loanPrincipal = mortgageAmount - downPaymentAmount;
+
             if (loanPrincipal <= 0) {
                 document.getElementById('monthlyPayment').innerText = 'Invalid Loan Amount';
                 return;
@@ -748,7 +750,7 @@
         // Clear Mortgage Calculator Fields
         document.getElementById('clearMortgage').addEventListener('click', function() {
             document.getElementById('mortgageAmount').value = '250000';
-            document.getElementById('downPayment').value = '50000';
+            document.getElementById('downPaymentPercentage').value = '20';
             document.getElementById('interestRate').value = '4.5';
             document.getElementById('amortizationPeriod').value = '30';
             document.getElementById('monthlyPayment').innerText = '$0.00';
