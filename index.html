@@ -1,7 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <!-- Google tag (gtag.js) -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-BSHFM74C4D"></script>
     <script>
       window.dataLayer = window.dataLayer || [];
@@ -15,15 +14,11 @@
     <title>Tyler Mortgage - Your Home Loan Partner in East Texas</title>
     <meta name="description" content="Secure your East Texas home loan with Tyler Mortgage! We offer personalized fixed-rate, FHA, VA, and refinance options. Get pre-qualified today for competitive rates, often better than traditional banks. Experience a smoother home buying process with a trusted local lender.">
     <meta name="keywords" content="home loan East Texas, mortgage East Texas, homeownership East Texas, mortgage rates Tyler, FHA loan Tyler, VA loan Tyler, refinance Tyler, cash-out refinance Tyler, mortgage pre-approval East Texas, best mortgage lender East Texas, mortgage solutions Tyler, home purchase Tyler, refinance rates Tyler, home buying process Tyler, alternative to bank mortgage, better than bank rates, mortgage broker vs bank, non-bank mortgage lender, credit union mortgage alternative, banktyler.com, buyhometyler.com, catonhill.com, homeloantyler.com, jeannahill.com, mortgagestylertexas.com, mortgagetyler.com, professionalmortgageassociatestyler.com, professionalmortgagetyler.com, tyler.loans, tylerhomeloan.com, tylerhomemortgage.com, tylerlender.com, tylermortgage.com, tylermortgagelender.com, tylermortgagelenders.com, tylermortgages.com, tylermortgageslender.com">
-
-    <!-- Favicon -->
+    
     <link rel="icon" type="image/png" href="https://github.com/verbatim37/tylermortgage/blob/main/texas_Flag.jpg?raw=true">
 
-    <!-- Tailwind CSS CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
-    <!-- Google Fonts - Inter -->
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    <!-- Inline styles for custom elements -->
     <style>
         body {
             font-family: 'Inter', sans-serif;
@@ -229,396 +224,388 @@
         }
     </style>
 </head>
-<body class="bg-gray-100 text-gray-800">
+<body>
 
-    <!-- Header Section -->
-    <header class="bg-white shadow-sm sticky top-0 z-50">
-        <div class="container mx-auto px-4 py-4 flex justify-between items-center">
-            <a href="#hero" class="flex items-center space-x-3">
-                <img src="https://github.com/verbatim37/tylermortgage/blob/main/tyler_mortgage_logo.jpg?raw=true" alt="Tyler Mortgage Logo" class="h-12 w-auto rounded-lg">
-                <span class="text-2xl font-bold text-red-600">Tyler Mortgage</span>
+    <section class="hero-section" id="hero-section-background">
+        <div class="container mx-auto px-4">
+            <h1 class="text-5xl md:text-6xl font-extrabold leading-tight mb-4">
+                Your Trusted Home Loan Partner in <span class="text-red-400-custom">East Texas</span>
+            </h1>
+            <p class="text-xl md:text-2xl mb-8 opacity-90">
+                Get the best rates, personalized service, and a smooth path to homeownership in the East Texas area.
+            </p>
+            <a href="#lead-form" class="btn-primary inline-block text-lg smooth-scroll" onclick="gtag('event', 'prequalify_button_click', {'event_category': 'Engagement', 'event_label': 'Hero Section'});">
+                Get Pre-Qualified Today!
             </a>
-            <nav class="hidden md:flex space-x-6 font-semibold">
-                <a href="#services" class="hover:text-red-600 smooth-scroll">Services</a>
-                <a href="#mortgage-calculator" class="hover:text-red-600 smooth-scroll">Calculator</a>
-                <a href="#about" class="hover:text-red-600 smooth-scroll">About</a>
-                <a href="#faq" class="hover:text-red-600 smooth-scroll">FAQ</a>
-                <a href="#contact" class="hover:text-red-600 smooth-scroll">Contact</a>
-            </nav>
-            <a href="#form-section" class="hidden md:inline-block bg-red-600 text-white px-4 py-2 rounded-lg font-semibold hover:bg-red-700 transition-colors duration-300 smooth-scroll">Get a Quote</a>
-            <button class="md:hidden text-red-600 text-2xl" id="mobile-menu-button">
-                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="w-6 h-6">
-                    <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16m-7 6h7" />
-                </svg>
-            </button>
-        </div>
-    </header>
-
-    <!-- Mobile Menu (Hidden by default) -->
-    <div id="mobile-menu" class="fixed inset-0 bg-white z-40 transform -translate-x-full transition-transform duration-300 ease-in-out">
-        <div class="p-8">
-            <div class="flex justify-end">
-                <button class="text-red-600 text-2xl" id="close-mobile-menu">
-                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="w-6 h-6">
-                        <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
-                    </svg>
-                </button>
-            </div>
-            <nav class="flex flex-col space-y-4 font-semibold mt-8">
-                <a href="#services" class="text-lg hover:text-red-600 smooth-scroll">Services</a>
-                <a href="#mortgage-calculator" class="text-lg hover:text-red-600 smooth-scroll">Calculator</a>
-                <a href="#about" class="text-lg hover:text-red-600 smooth-scroll">About</a>
-                <a href="#faq" class="text-lg hover:text-red-600 smooth-scroll">FAQ</a>
-                <a href="#contact" class="text-lg hover:text-red-600 smooth-scroll">Contact</a>
-                <a href="#form-section" class="bg-red-600 text-white text-center px-4 py-2 rounded-lg font-semibold hover:bg-red-700 transition-colors duration-300 smooth-scroll mt-4">Get a Quote</a>
-            </nav>
-        </div>
-    </div>
-
-    <!-- Main Content -->
-    <main class="relative">
-        
-        <!-- Hero Section -->
-        <section id="hero" class="hero-section">
-            <div class="container mx-auto px-4">
-                <h1 class="text-5xl md:text-7xl font-bold leading-tight mb-4 animate-fadeInUp">Your Trusted <br>Mortgage Partner in East Texas</h1>
-                <p class="text-xl md:text-2xl font-light mb-8 animate-fadeInUp animate-delay-200">Personalized home loan solutions with competitive rates.</p>
-                <a href="#form-section" class="bg-red-600 text-white px-8 py-3 rounded-full font-bold text-lg hover:bg-red-700 transition-colors duration-300 animate-fadeInUp animate-delay-400 smooth-scroll">Get Pre-Qualified Today</a>
-            </div>
-        </section>
-
-        <!-- Mortgage Form Section -->
-        <section id="form-section" class="form-section animate-slideInUp">
-            <h2 class="text-3xl md:text-4xl font-bold text-center mb-4">Request a Free Quote</h2>
-            <p class="text-center mb-8">Fill out the form below to get started on your home loan journey.</p>
-            <form id="mortgageLeadForm" action="https://api.web3forms.com/submit" method="POST">
-                <input type="hidden" name="access_key" value="0026e632-4416-41c1-8472-a1f949c2d159">
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-                    <input type="text" name="First Name" placeholder="First Name" class="input-field" required>
-                    <input type="text" name="Last Name" placeholder="Last Name" class="input-field" required>
-                </div>
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-                    <input type="email" name="Email" placeholder="Email Address" class="input-field" required>
-                    <input type="tel" name="Phone" placeholder="Phone Number" class="input-field" required>
-                </div>
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-                    <input type="number" name="Zip Code" placeholder="Zip Code" class="input-field" required>
-                    <select name="Loan Type" class="input-field" required>
-                        <option value="">Select Loan Type</option>
-                        <option value="Fixed Rate Mortgage">Fixed Rate Mortgage</option>
-                        <option value="FHA Home Loan">FHA Home Loan</option>
-                        <option value="VA Home Loan">VA Home Loan</option>
-                        <option value="Jumbo Home Loan">Jumbo Home Loan</option>
-                        <option value="Refinance">Refinance</option>
-                        <option value="Cash-Out Refinance">Cash-Out Refinance</option>
-                    </select>
-                </div>
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-                    <input type="number" name="Loan Amount" placeholder="Desired Loan Amount" class="input-field" required>
-                    <select name="Timeframe" class="input-field" required>
-                        <option value="">Timeframe to buy?</option>
-                        <option value="30-60 days">30-60 days</option>
-                        <option value="60-90 days">60-90 days</option>
-                        <option value="90+ days">90+ days</option>
-                    </select>
-                </div>
-                <textarea name="message" placeholder="Additional Comments" class="input-field resize-none h-24"></textarea>
-                <button type="submit" class="btn-primary w-full font-bold mt-2">Submit Request</button>
-            </form>
-            <p id="form-message" class="text-center mt-4 hidden text-white"></p>
-        </section>
-
-        <!-- Our Services Section -->
-        <section id="services" class="container mx-auto px-4 py-16 text-center">
-            <h2 class="text-4xl font-bold mb-4">Our Services</h2>
-            <p class="text-lg text-gray-600 mb-12">We offer a range of mortgage solutions tailored to your needs.</p>
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-                <!-- Service 1 -->
-                <div class="bg-white p-6 rounded-lg shadow-md hover:shadow-xl transition-shadow duration-300">
-                    <img src="https://github.com/verbatim37/tylermortgage/blob/main/fixed_rate_mortgage.jpg?raw=true" alt="Fixed Rate Mortgage" class="h-48 w-full object-cover rounded-md mb-4">
-                    <h3 class="text-2xl font-semibold mb-2">Fixed Rate Mortgage</h3>
-                    <p class="text-gray-600">Lock in your interest rate for the life of the loan. Enjoy predictable monthly payments.</p>
-                </div>
-                <!-- Service 2 -->
-                <div class="bg-white p-6 rounded-lg shadow-md hover:shadow-xl transition-shadow duration-300">
-                    <img src="https://github.com/verbatim37/tylermortgage/blob/main/fha_loan.jpg?raw=true" alt="FHA Loan" class="h-48 w-full object-cover rounded-md mb-4">
-                    <h3 class="text-2xl font-semibold mb-2">FHA Home Loan</h3>
-                    <p class="text-gray-600">An excellent option for first-time homebuyers with lower down payment requirements.</p>
-                </div>
-                <!-- Service 3 -->
-                <div class="bg-white p-6 rounded-lg shadow-md hover:shadow-xl transition-shadow duration-300">
-                    <img src="https://github.com/verbatim37/tylermortgage/blob/main/va_loan.jpg?raw=true" alt="VA Loan" class="h-48 w-full object-cover rounded-md mb-4">
-                    <h3 class="text-2xl font-semibold mb-2">VA Home Loan</h3>
-                    <p class="text-gray-600">Exclusive benefits for veterans and active-duty military with no down payment.</p>
-                </div>
-                <!-- Service 4 -->
-                <div class="bg-white p-6 rounded-lg shadow-md hover:shadow-xl transition-shadow duration-300">
-                    <img src="https://github.com/verbatim37/tylermortgage/blob/main/jumbo_loan.jpg?raw=true" alt="Jumbo Loan" class="h-48 w-full object-cover rounded-md mb-4">
-                    <h3 class="text-2xl font-semibold mb-2">Jumbo Home Loan</h3>
-                    <p class="text-gray-600">Financing for higher-priced properties that exceed conventional loan limits.</p>
-                </div>
-            </div>
-        </section>
-
-        <!-- Our Difference Section -->
-        <section id="our-difference" class="bg-gray-200 py-16">
-            <div class="container mx-auto px-4 text-center">
-                <h2 class="text-4xl font-bold mb-4">Our Difference</h2>
-                <p class="text-lg text-gray-600 mb-12">We are a trusted, local mortgage company with a focus on your success.</p>
-                <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-                    <!-- Difference 1 -->
-                    <div class="bg-white p-6 rounded-lg shadow-md flex flex-col items-center">
-                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-16 h-16 text-red-600 mb-4">
-                            <path stroke-linecap="round" stroke-linejoin="round" d="M12 6v6h4.5m4.5 0a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" />
-                        </svg>
-                        <h3 class="text-xl font-semibold mb-2">Faster Closings</h3>
-                        <p class="text-gray-600">Our streamlined process gets you to the closing table faster, without unnecessary delays.</p>
-                    </div>
-                    <!-- Difference 2 -->
-                    <div class="bg-white p-6 rounded-lg shadow-md flex flex-col items-center">
-                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-16 h-16 text-red-600 mb-4">
-                            <path stroke-linecap="round" stroke-linejoin="round" d="M15 19.128a9.38 9.38 0 0 0 2.657.306 1.125 1.125 0 0 0 .891-.455 1.125 1.125 0 0 0-.441-.89L15.483 8.658m-4.721 10.428a9.38 9.38 0 0 1-2.657-.306 1.125 1.125 0 0 1-.89-.455 1.125 1.125 0 0 1 .443-.89L10.152 8.658m-4.721 10.428A9.38 9.38 0 0 1 2.5 19.128v-.106a3.252 3.252 0 0 1 3.25-3.25h13.5a3.25 3.25 0 0 1 3.25 3.25v.106a9.38 9.38 0 0 1-2.657.306m-4.721-10.428a9.38 9.38 0 0 1-2.657-.306 1.125 1.125 0 0 0-.443-.89L10.152 8.658m-4.721-10.428a9.38 9.38 0 0 1-2.657-.306 1.125 1.125 0 0 0-.89-.455 1.125 1.125 0 0 0 .443-.89L10.152 8.658" />
-                        </svg>
-                        <h3 class="text-xl font-semibold mb-2">Competitive Rates</h3>
-                        <p class="text-gray-600">We search a wide network of lenders to find you the best possible rate, often better than traditional banks.</p>
-                    </div>
-                    <!-- Difference 3 -->
-                    <div class="bg-white p-6 rounded-lg shadow-md flex flex-col items-center">
-                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-16 h-16 text-red-600 mb-4">
-                            <path stroke-linecap="round" stroke-linejoin="round" d="M18 7.5v3m0 0v3m0-3h3m-3 0h-3m-2.25-4.125a3.375 3.375 0 1 1-6.75 0 3.375 3.375 0 0 1 6.75 0ZM3 19.25v-2.625A3.375 3.375 0 0 1 6.375 13h4.25a3.375 3.375 0 0 1 3.375 3.375v2.625m-15.75-6.75h-.008v-.008H3v.008Zm12.75 0h-.008v-.008h.008v.008Z" />
-                        </svg>
-                        <h3 class="text-xl font-semibold mb-2">Personalized Service</h3>
-                        <p class="text-gray-600">Our local experts provide one-on-one guidance throughout your entire home buying journey.</p>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- What We Do Section -->
-        <section id="what-we-do" class="container mx-auto px-4 py-16">
-            <div class="flex flex-col md:flex-row items-center gap-12">
-                <div class="md:w-1/2 text-left">
-                    <h2 class="text-4xl font-bold mb-4">Your Home Loan Partner</h2>
-                    <p class="text-lg text-gray-600 mb-6">At Mortgage Financial Services, we are committed to making the dream of home ownership a reality. Our dedicated team of experienced loan professionals is here to guide you every step of the way, offering transparent advice and support. Whether you are a first-time home buyer or a seasoned investor, we have the expertise to help you find the perfect loan solution. We believe in building lasting relationships with our clients, and our goal is to become your trusted mortgage partner for life.</p>
-                    <a href="#form-section" class="btn-primary inline-block smooth-scroll">Get Started Now</a>
-                </div>
-                <div class="md:w-1/2 mt-8 md:mt-0">
-                    <div id="home-loan-partner-image-container" class="relative">
-                        <img src="https://github.com/verbatim37/tylermortgage/blob/main/home_loan_partner.jpg?raw=true" alt="Home Loan Partner" class="w-full rounded-lg shadow-xl" loading="lazy">
-                    </div>
-                </div>
-            </div>
-            <div class="mt-16">
-                <h3 class="text-3xl font-bold text-center mb-8">What We Do</h3>
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-                    <!-- Service Card 1 -->
-                    <div class="bg-white p-6 rounded-lg shadow-md">
-                        <img src="https://github.com/verbatim37/tylermortgage/blob/main/home_purchase.jpg?raw=true" alt="Home Purchase" class="what-we-do-image rounded-md mb-4" loading="lazy">
-                        <h4 class="text-2xl font-semibold mb-2">Home Purchase</h4>
-                        <p class="text-gray-600">We work with you to find a loan that fits your budget and financial goals. From pre-approval to closing, we are with you every step.</p>
-                    </div>
-                    <!-- Service Card 2 -->
-                    <div class="bg-white p-6 rounded-lg shadow-md">
-                        <img src="https://github.com/verbatim37/tylermortgage/blob/main/refinance.jpg?raw=true" alt="Refinance" class="what-we-do-image rounded-md mb-4" loading="lazy">
-                        <h4 class="text-2xl font-semibold mb-2">Refinancing</h4>
-                        <p class="text-gray-600">Whether you want to lower your monthly payment or get cash out of your home's equity, we can help you find a refinance solution that's right for you.</p>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Mortgage Calculator Section -->
-        <section id="mortgage-calculator" class="bg-gray-200 py-16">
-            <div class="container mx-auto px-4 text-center">
-                <h2 class="text-4xl font-bold mb-4">Mortgage Calculator</h2>
-                <p class="text-lg text-gray-600 mb-12">Estimate your potential monthly mortgage payment with our easy-to-use calculator.</p>
-                <div class="max-w-xl mx-auto bg-white p-8 rounded-lg shadow-md">
-                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-                        <div>
-                            <label for="mortgageAmount" class="block text-left text-sm font-medium text-gray-700">Mortgage Amount ($)</label>
-                            <input type="number" id="mortgageAmount" value="250000" class="input-field mt-1" required>
-                        </div>
-                        <div>
-                            <label for="downPayment" class="block text-left text-sm font-medium text-gray-700">Down Payment ($)</label>
-                            <input type="number" id="downPayment" value="50000" class="input-field mt-1" required>
-                        </div>
-                        <div>
-                            <label for="interestRate" class="block text-left text-sm font-medium text-gray-700">Interest Rate (%)</label>
-                            <input type="number" id="interestRate" value="4.5" step="0.01" class="input-field mt-1" required>
-                        </div>
-                        <div>
-                            <label for="amortizationPeriod" class="block text-left text-sm font-medium text-gray-700">Amortization Period (Years)</label>
-                            <input type="number" id="amortizationPeriod" value="30" class="input-field mt-1" required>
-                        </div>
-                    </div>
-                    <div class="mt-8 flex justify-center space-x-4">
-                        <button id="calculateMortgage" class="btn-primary">Calculate</button>
-                        <button id="clearMortgage" class="bg-gray-400 text-white px-4 py-2 rounded-lg font-semibold hover:bg-gray-500 transition-colors duration-300">Clear</button>
-                    </div>
-                    <div class="mt-8">
-                        <h4 class="text-2xl font-bold">Estimated Monthly Payment:</h4>
-                        <p id="monthlyPayment" class="text-red-600 text-4xl font-bold mt-2">$0.00</p>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- FAQ Section -->
-        <section id="faq" class="container mx-auto px-4 py-16">
-            <div class="text-center mb-12">
-                <h2 class="text-4xl font-bold mb-4">Frequently Asked Questions</h2>
-                <p class="text-lg text-gray-600">Find answers to the most common questions about the home loan process.</p>
-            </div>
-            <div class="max-w-3xl mx-auto">
-                <!-- FAQ Item 1 -->
-                <div class="accordion-item">
-                    <div class="accordion-header">
-                        <span>What is the difference between a mortgage broker and a bank?</span>
-                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="w-6 h-6 accordion-icon">
-                            <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 8.25l-7.5 7.5-7.5-7.5" />
-                        </svg>
-                    </div>
-                    <div class="accordion-content">
-                        <p>A bank only offers its own products, whereas a mortgage broker has access to a wide variety of lenders and products. This allows a mortgage broker to shop for the best rate and terms for you, often leading to better deals than you can get from a single bank. We are a team of loan professionals who have access to numerous lenders, allowing us to help you find the best loan to fit your needs, at a competitive rate.</p>
-                    </div>
-                </div>
-                <!-- FAQ Item 2 -->
-                <div class="accordion-item">
-                    <div class="accordion-header">
-                        <span>What are the key steps in the home buying process?</span>
-                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="w-6 h-6 accordion-icon">
-                            <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 8.25l-7.5 7.5-7.5-7.5" />
-                        </svg>
-                    </div>
-                    <div class="accordion-content">
-                        <p>The process generally involves these key steps: getting pre-qualified, finding a home, making an offer, securing financing (that's where we come in!), and finally, closing on your new home. Our team will guide you through each of these stages, ensuring a smooth and stress-free experience.</p>
-                    </div>
-                </div>
-                <!-- FAQ Item 3 -->
-                <div class="accordion-item">
-                    <div class="accordion-header">
-                        <span>How long does the pre-qualification process take?</span>
-                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="w-6 h-6 accordion-icon">
-                            <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 8.25l-7.5 7.5-7.5-7.5" />
-                        </svg>
-                    </div>
-                    <div class="accordion-content">
-                        <p>Getting pre-qualified is the first and fastest step in the process. It involves a quick review of your financial situation to determine how much you can afford to borrow. This can often be done in a single day, giving you a clear picture of your purchasing power so you can start looking for homes with confidence.</p>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Our Team Section -->
-        <section id="about" class="bg-gray-200 py-16">
-            <div class="container mx-auto px-4 text-center">
-                <h2 class="text-4xl font-bold mb-4">Meet the Tyler Mortgage Team</h2>
-                <p class="text-lg text-gray-600 mb-12">Experienced professionals dedicated to your homeownership dreams.</p>
-                <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-                    <!-- Team Member 1 -->
-                    <div class="bg-white p-6 rounded-lg shadow-md flex flex-col items-center">
-                        <img src="https://github.com/verbatim37/tylermortgage/blob/main/jeanna_hill_team.jpg?raw=true" alt="Jeanna Hill, Loan Officer" class="w-32 h-32 rounded-full object-cover mb-4">
-                        <h3 class="text-2xl font-semibold">Jeanna Hill</h3>
-                        <p class="text-red-600 mb-2">Loan Officer</p>
-                        <p class="text-gray-600 text-sm">Jeanna is a seasoned loan officer with over 20 years of experience, specializing in a variety of loan products to fit every client's unique needs.</p>
-                        <button class="text-red-600 font-semibold mt-4" onclick="openModal('jeannaModal')">Read More</button>
-                    </div>
-                    <!-- Team Member 2 -->
-                    <div class="bg-white p-6 rounded-lg shadow-md flex flex-col items-center">
-                        <img src="https://github.com/verbatim37/tylermortgage/blob/main/caton_hill_team.jpg?raw=true" alt="Caton Hill, Loan Officer Assistant" class="w-32 h-32 rounded-full object-cover mb-4">
-                        <h3 class="text-2xl font-semibold">Caton Hill</h3>
-                        <p class="text-red-600 mb-2">Loan Officer Assistant</p>
-                        <p class="text-gray-600 text-sm">Caton assists clients throughout the loan process, ensuring a smooth and efficient experience from application to closing.</p>
-                        <button class="text-red-600 font-semibold mt-4" onclick="openModal('catonModal')">Read More</button>
-                    </div>
-                    <!-- Team Member 3 -->
-                    <div class="bg-white p-6 rounded-lg shadow-md flex flex-col items-center">
-                        <img src="https://github.com/verbatim37/tylermortgage/blob/main/ryan_johnson_team.jpg?raw=true" alt="Ryan Johnson, Loan Officer" class="w-32 h-32 rounded-full object-cover mb-4">
-                        <h3 class="text-2xl font-semibold">Ryan Johnson</h3>
-                        <p class="text-red-600 mb-2">Loan Officer</p>
-                        <p class="text-gray-600 text-sm">Ryan has a passion for helping people find the right mortgage for their financial goals, with a focus on clear communication and transparency.</p>
-                        <button class="text-red-600 font-semibold mt-4" onclick="openModal('ryanModal')">Read More</button>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-    </main>
-
-    <!-- Modals -->
-    <!-- Jeanna Modal -->
-    <div id="jeannaModal" class="modal-overlay">
-        <div class="modal-content">
-            <button class="modal-close-button" onclick="closeModal('jeannaModal')">&times;</button>
-            <h3 class="text-3xl font-bold mb-4 text-red-600">Jeanna Hill</h3>
-            <p class="text-red-400-custom text-xl mb-4">Loan Officer</p>
-            <p class="mb-4">With over 20 years of experience in the mortgage industry, Jeanna Hill is a trusted name in the East Texas real estate community. She is dedicated to finding the best loan products for her clients, ensuring they have a smooth and stress-free home buying experience.</p>
-            <p>Her expertise spans a wide range of loan types, including Fixed Rate, FHA, VA, and Jumbo loans. Jeanna's commitment to personalized service and her deep knowledge of the local market make her an invaluable partner for anyone looking to secure a home loan in the Tyler area.</p>
-        </div>
-    </div>
-    <!-- Caton Modal -->
-    <div id="catonModal" class="modal-overlay">
-        <div class="modal-content">
-            <button class="modal-close-button" onclick="closeModal('catonModal')">&times;</button>
-            <h3 class="text-3xl font-bold mb-4 text-red-600">Caton Hill</h3>
-            <p class="text-red-400-custom text-xl mb-4">Loan Officer Assistant</p>
-            <p class="mb-4">Caton plays a crucial role in ensuring a seamless process for all our clients. With his background in marketing and his degree from Texas State University, Caton is the ideal assistant to the loan officers. He provides dedicated support, from helping clients gather documentation to answering their questions throughout the application and underwriting process.</p>
-            <p>His attention to detail and proactive communication help to keep every transaction on track, ensuring that clients are always informed and confident as they move toward closing.</p>
-        </div>
-    </div>
-    <!-- Ryan Modal -->
-    <div id="ryanModal" class="modal-overlay">
-        <div class="modal-content">
-            <button class="modal-close-button" onclick="closeModal('ryanModal')">&times;</button>
-            <h3 class="text-3xl font-bold mb-4 text-red-600">Ryan Johnson</h3>
-            <p class="text-red-400-custom text-xl mb-4">Loan Officer</p>
-            <p class="mb-4">Ryan is a passionate loan officer who believes in a client-first approach. He takes the time to listen to each client's unique story and financial goals, then works tirelessly to find a mortgage solution that is perfectly aligned with their needs.</p>
-            <p>He is known for his clear, transparent communication and his ability to demystify the mortgage process. Ryan's goal is to empower his clients with the knowledge and resources they need to make the best decisions for their future, building a foundation of trust that lasts for years to come.</p>
-        </div>
-    </div>
-
-    <!-- Contact Section -->
-    <section id="contact" class="container mx-auto px-4 py-16 text-center">
-        <h2 class="text-4xl font-bold mb-4">Contact Us</h2>
-        <p class="text-lg text-gray-600 mb-8">Ready to get started? We're here to help.</p>
-        <div class="flex flex-col md:flex-row items-center justify-center space-y-6 md:space-y-0 md:space-x-12">
-            <div class="flex items-center space-x-3">
-                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-8 h-8 text-red-600">
-                    <path stroke-linecap="round" stroke-linejoin="round" d="M2.25 6.75l10.5 10.5L23.25 6.75" />
-                </svg>
-                <div>
-                    <h4 class="text-xl font-semibold">Email</h4>
-                    <a href="mailto:jhill@mfshomeloans.com" class="text-gray-600 hover:text-red-600">jhill@mfshomeloans.com</a>
-                </div>
-            </div>
-            <div class="flex items-center space-x-3">
-                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-8 h-8 text-red-600">
-                    <path stroke-linecap="round" stroke-linejoin="round" d="M2.25 6.75l10.5 10.5L23.25 6.75" />
-                </svg>
-                <div>
-                    <h4 class="text-xl font-semibold">Phone</h4>
-                    <a href="tel:903-561-4663" class="text-gray-600 hover:text-red-600">903-561-4663</a>
-                </div>
-            </div>
-        </div>
-        <!-- Google Maps iframe -->
-        <div class="mt-12">
-            <h3 class="text-2xl font-bold mb-4">Our Location</h3>
-            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3372.502897686566!2d-95.3409154245648!3d32.33824364952097!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x86361a941a8e137f%3A0xe54d89f81f1816e9!2s1900%20W%20Kirkwood%20Blvd%2C%20Southlake%2C%20TX%2076092%2C%20USA!5e0!3m2!1sen!2sus!4v1709214476088!5m2!1sen!2sus" width="100%" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
         </div>
     </section>
 
-    <!-- Footer -->
+    <section id="lead-form" class="form-section">
+        <h2 class="text-3xl font-bold mb-6 text-center">
+            Tell Us About Your Mortgage Needs
+        </h2>
+        <p class="mb-8 text-center">
+            Fill out the form below to get started. No obligation, just expert guidance.
+        </p>
+
+        <form class="space-y-4" id="mortgageLeadForm" action="https://api.web3forms.com/submit" method="POST">
+            <input type="hidden" name="access_key" value="da10dde3-0585-4019-8810-ac7491335b23">
+            <div>
+                <label for="full-name" class="block text-white text-sm font-medium mb-1">Full Name</label>
+                <input type="text" id="full-name" name="full-name" placeholder="John Doe" class="input-field" required>
+            </div>
+            <div>
+                <label for="email" class="block text-white text-sm font-medium mb-1">Email Address</label>
+                <input type="email" id="email" name="email" placeholder="john.doe@example.com" class="input-field" required>
+            </div>
+            <div>
+                <label for="phone" class="block text-white text-sm font-medium mb-1">Phone Number</label>
+                <input type="tel" id="phone" name="phone" placeholder="(123) 456-7890" class="input-field" required>
+            </div>
+            <div>
+                <label for="loan-type" class="block text-white text-sm font-medium mb-1">What type of mortgage are you looking for?</label>
+                <select id="loan-type" name="loan-type" class="input-field" required>
+                    <option value="">Select an Option</option>
+                    <option value="purchase">New Home Purchase</option>
+                    <option value="refinance">Refinance Existing Mortgage</option>
+                    <option value="pre-approval">Mortgage Pre-Approval</option>
+                    <option value="other">Other</option>
+                </select>
+            </div>
+            <div>
+                <label for="message" class="block text-white text-sm font-medium mb-1">Tell us more about your situation (Optional)</label>
+                <textarea id="message" name="message" rows="4" placeholder="e.g., First-time home buyer, looking for a 30-year fixed rate, etc." class="input-field"></textarea>
+            </div>
+
+            <div id="form-message" class="text-center text-white text-lg mt-4 hidden"></div>
+
+            <button type="submit" class="btn-primary w-full py-3 text-xl">
+                Get Pre-Qualified!
+            </button>
+        </form>
+    </section>
+
+    <section id="mortgage-calculator-section" class="py-16 bg-gray-900 text-white">
+        <div class="container mx-auto px-4 max-w-6xl">
+            <h2 class="text-3xl font-bold mb-10 text-center">Your Mortgage Journey Starts Here</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8 items-stretch"> <div class="flex flex-col"> <h3 class="text-2xl font-semibold mb-6 text-center">Mortgage Calculator</h3>
+                    <div class="bg-white p-6 rounded-lg shadow-md flex-grow"> <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                            <div>
+                                <label for="mortgageAmount" class="block text-gray-700 text-sm font-medium mb-1">Mortgage Amount ($)</label>
+                                <input type="number" id="mortgageAmount" class="input-field" value="250000" min="0">
+                            </div>
+                            <div>
+                                <label for="downPayment" class="block text-gray-700 text-sm font-medium mb-1">Down Payment ($)</label>
+                                <input type="number" id="downPayment" class="input-field" value="50000" min="0">
+                            </div>
+                            <div>
+                                <label for="interestRate" class="block text-gray-700 text-sm font-medium mb-1">Interest Rate (%)</label>
+                                <input type="number" id="interestRate" class="input-field" value="4.5" step="0.01" min="0">
+                            </div>
+                            <div>
+                                <label for="amortizationPeriod" class="block text-gray-700 text-sm font-medium mb-1">Amortization Period (years)</label>
+                                <input type="number" id="amortizationPeriod" class="input-field" value="30" min="1">
+                            </div>
+                            <div class="md:col-span-2 flex justify-between space-x-4">
+                                <button id="calculateMortgage" class="btn-primary flex-grow py-2">Calculate</button>
+                                <button id="clearMortgage" class="btn-primary flex-grow py-2 bg-gray-500 hover:bg-gray-600">Clear</button>
+                            </div>
+                        </div>
+                        <div class="mt-6 text-center">
+                            <h3 class="text-xl font-semibold text-gray-800">Estimated Monthly Payment:</h3>
+                            <p id="monthlyPayment" class="text-4xl font-bold text-red-600 mt-2">$0.00</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="flex flex-col"> <h3 class="text-2xl font-semibold mb-6 text-center">Why Get Pre-Qualified?</h3>
+                    <div class="bg-white p-6 rounded-lg shadow-md flex flex-col justify-between"> <ul class="text-left text-gray-700 space-y-4">
+                            <li>
+                                <span class="font-bold text-red-600">&#10003;</span> <span class="font-bold">Know Your Budget:</span> Understand exactly how much home you can afford, saving you time and effort.
+                            </li>
+                            <li>
+                                <span class="font-bold text-red-600">&#10003;</span> <span class="font-bold">Strengthen Your Offer:</span> A pre-qualification letter shows sellers you're a serious and capable buyer, giving you an edge.
+                            </li>
+                            <li>
+                                <span class="font-bold text-red-600">&#10003;</span> <span class="font-bold">Faster Closing:</span> Speed up the loan approval process once you find your dream home.
+                            </li>
+                            <li>
+                                <span class="font-bold text-red-600">&#10003;</span> <span class="font-bold">Identify Potential Issues Early:</span> Address any credit or financial concerns before they become roadblocks.
+                            </li>
+                            <li>
+                                <span class="font-bold text-red-600">&#10003;</span> <span class="font-bold">Peace of Mind:</span> Shop for homes with confidence, knowing your financing is in order.
+                            </li>
+                        </ul>
+                        <div class="mt-8 text-center">
+                            <a href="tel:903-360-1131" class="btn-primary inline-block text-lg" onclick="gtag('event', 'prequalify_button_click', {'event_category': 'Engagement', 'event_label': 'Mortgage Calculator Section'});">
+                                Get Pre-Qualified Now!
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="py-16 bg-white">
+        <div class="container mx-auto px-4 text-center max-w-3xl">
+            <h2 class="text-3xl font-bold text-gray-800 mb-6">YOUR HOME LOAN PARTNER IN EAST TEXAS</h2>
+            <div id="home-loan-partner-image-container" class="mx-auto mb-6">
+                <a href="#what-we-do-section" class="smooth-scroll block">
+                    <img src="https://github.com/verbatim37/tylermortgage/blob/main/Tyler_today_1_magazine-ad_jeanna.hill_-p9h9omqqi4bs9xeoo4tnrsn3rozoyj1mce2rj5p9pg.png?raw=true" alt="Mortgage loan officer assisting client with transaction in East Texas. Keywords: tylerhomemortgage.com, tylermortgage.com, homeloantyler.com, mortgagetyler.com, tylerlender.com" class="w-full h-auto object-contain rounded-lg">
+                </a>
+            </div>
+            <p class="text-lg text-gray-700 mb-4">
+                We help East Texas homebuyers achieve their dream of homeownership. With the right products and quality service, we partner with you throughout the home loan process.
+            </p>
+            <p class="text-lg text-gray-700 font-semibold">
+                You deserve a home. You deserve the right product. You deserve the best service.
+            </p>
+        </div>
+    </section>
+
+    <section class="py-16 bg-gray-800 text-white">
+        <div class="container mx-auto px-4 text-center max-w-3xl">
+            <h2 class="text-3xl font-bold mb-6">Client Reviews</h2>
+            <p class="text-lg mb-8">
+                Hear what our satisfied clients in East Texas have to say about their home loan experience with us!
+            </p>
+            <a href="https://pro.experience.com/pages/jeanna-hill-127342" target="_blank" class="btn-primary inline-block text-lg" onclick="gtag('event', 'view_testimonials_click', {'event_category': 'Outbound Link', 'event_label': 'Client Reviews Section'});">
+                View Testimonials
+            </a>
+        </div>
+    </section>
+
+    <section class="py-16 bg-gray-100">
+        <div class="container mx-auto px-4 text-center max-w-3xl">
+            <h2 class="text-3xl font-bold text-gray-800 mb-6">Information Resources</h2>
+            <p class="text-lg text-gray-700 mb-8">
+                Access helpful guides and checklists to navigate your homebuying journey.
+            </p>
+            <button onclick="openModal('resourcesModal'); gtag('event', 'open_resources_modal', {'event_category': 'Engagement', 'event_label': 'Information Resources Section'});" class="btn-primary inline-block text-lg">
+                View Resources
+            </button>
+        </div>
+    </section>
+
+    <section class="py-16 bg-gray-50">
+        <div class="container mx-auto px-4">
+            <h2 class="text-3xl font-bold text-white bg-red-600 py-4 rounded-lg mb-10 text-center">Our Home Loan Programs</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 max-w-6xl mx-auto">
+                <div class="accordion-item">
+                    <div class="accordion-header" tabindex="0" role="button" aria-expanded="false" aria-controls="fixed-rate-content">
+                        <span>Fixed Rate Mortgage</span>
+                        <span class="accordion-icon">&#9660;</span>
+                    </div>
+                    <div id="fixed-rate-content" class="accordion-content">
+                        <p class="text-gray-700 mb-2">
+                            Ideal if you have at least 5% down. Fixed Rate Mortgages offer stable interest rates and predictable monthly payments, protecting you from rate increases. Great for long-term homeowners seeking consistent expenses.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="accordion-item">
+                    <div class="accordion-header" tabindex="0" role="button" aria-expanded="false" aria-controls="fha-loan-content">
+                        <span>FHA Loan</span>
+                        <span class="accordion-icon">&#9660;</span>
+                    </div>
+                    <div id="fha-loan-content" class="accordion-content">
+                        <p class="text-gray-700 mb-2">
+                            Perfect for smaller down payments (as low as 3.5%) or lower credit scores. FHA loans, insured by the Federal Housing Administration, make homeownership more accessible with flexible requirements.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="accordion-item">
+                    <div class="accordion-header" tabindex="0" role="button" aria-expanded="false" aria-controls="va-loan-content">
+                        <span>VA Loan</span>
+                        <span class="accordion-icon">&#9660;</span>
+                    </div>
+                    <div id="va-loan-content" class="accordion-content">
+                        <p class="text-gray-700 mb-2">
+                            A great benefit for eligible military members and veterans. VA loans, guaranteed by the U.S. Department of Veterans Affairs, often feature no down payment, competitive rates, and no PMI, making homeownership more affordable.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="accordion-item">
+                    <div class="accordion-header" tabindex="0" role="button" aria-expanded="false" aria-controls="cash-out-refinance-content">
+                        <span>Cash-Out Refinance</span>
+                        <span class="accordion-icon">&#9660;</span>
+                    </div>
+                    <div id="cash-out-refinance-content" class="accordion-content">
+                        <p class="text-gray-700 mb-2">
+                            Consolidate high-interest debt, fund home improvements, pay for education, or cover major expenses. Refinance for a higher amount and receive the difference in cash, leveraging your home equity. <a href="#home-equity-cash-out-section" class="text-red-600 hover:underline smooth-scroll">Learn more about Home Equity Cash-Out Loans.</a>
+                        </p>
+                    </div>
+                </div>
+
+                <div class="accordion-item">
+                    <div class="accordion-header" tabindex="0" role="button" aria-expanded="false" aria-controls="refinance-faster-content">
+                        <span>Refinance (Payoff Faster)</span>
+                        <span class="accordion-icon">&#9660;</span>
+                    </div>
+                    <div id="refinance-faster-content" class="accordion-content">
+                        <p class="text-gray-700 mb-2">
+                            Want to pay off your loan faster? Refinance to a shorter term (e.g., 15-year) to significantly reduce total interest paid and build equity quicker, even if monthly payments increase.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="accordion-item">
+                    <div class="accordion-header" tabindex="0" role="button" aria-expanded="false" aria-controls="refinance-content">
+                        <span>Refinance</span>
+                        <span class="accordion-icon">&#9660;</span>
+                    </div>
+                    <div id="refinance-content" class="accordion-content">
+                        <p class="text-gray-700 mb-2">
+                            Reduce your monthly payment or rate. Refinancing can lower your mortgage payments by securing a better interest rate or extending your loan term, freeing up cash flow and making your mortgage more affordable.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="what-we-do-section" class="py-16 bg-gray-900 text-white">
+        <div class="container mx-auto px-4 text-center max-w-3xl">
+            <h2 class="text-3xl font-bold mb-6">What We Do for East Texas Homebuyers</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mx-auto mb-6">
+                <img src="https://github.com/verbatim37/tylermortgage/blob/main/happyfamilymortgage.png?raw=true" alt="Happy family celebrating their first home in East Texas" class="what-we-do-image">
+                <img src="https://github.com/verbatim37/tylermortgage/blob/main/happyfamilymortgage2.png?raw=true" alt="Family looking at new home in East Texas" class="what-we-do-image">
+            </div>
+            <p class="text-lg">
+                We help East Texas homebuyers achieve the American Dream. Whether you're a first-time buyer or purchasing a second home, Mortgage Financial Services, LLC provides quality service and products to guide you through the home buying process. Dream big, and let us handle the details!
+            </p>
+        </div>
+    </section>
+
+    <section id="home-equity-cash-out-section" class="py-16 bg-red-700 text-white">
+        <div class="container mx-auto px-4 text-center max-w-5xl">
+            <div class="text-5xl mb-4">💰</div> <h2 class="text-3xl font-bold mb-6">Unlock Your Home's Potential with a Cash-Out Loan</h2>
+            <p class="text-lg mb-8">
+                A Home Equity Cash-Out Loan allows you to convert a portion of your home's equity into liquid cash. This is a powerful financial tool that can help you achieve various goals by leveraging the value you've built in your property.
+            </p>
+            <h3 class="text-2xl font-semibold mb-6">What Can You Use Your Cash-Out For?</h3>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <div class="bg-white text-gray-800 p-6 rounded-lg shadow-md flex flex-col items-center text-center">
+                    <div class="text-4xl mb-3">💳</div>
+                    <h4 class="font-bold text-xl mb-2">Debt Consolidation</h4>
+                    <p class="text-base">Pay off high-interest credit card debt, personal loans, or other bills, potentially lowering your monthly payments and saving on interest.</p>
+                </div>
+                <div class="bg-white text-gray-800 p-6 rounded-lg shadow-md flex flex-col items-center text-center">
+                    <div class="text-4xl mb-3">🏡</div>
+                    <h4 class="font-bold text-xl mb-2">Home Improvements</h4>
+                    <p class="text-base">Fund major renovations, additions, or repairs to increase your home's value and enhance your living space.</p>
+                </div>
+                <div class="bg-white text-gray-800 p-6 rounded-lg shadow-md flex flex-col items-center text-center">
+                    <div class="text-4xl mb-3">🎓</div>
+                    <h4 class="font-bold text-xl mb-2">Education Expenses</h4>
+                    <p class="text-base">Cover tuition fees, student loans, or other educational costs for yourself or your family.</p>
+                </div>
+                <div class="bg-white text-gray-800 p-6 rounded-lg shadow-md flex flex-col items-center text-center">
+                    <div class="text-4xl mb-3">🛒</div>
+                    <h4 class="font-bold text-xl mb-2">Major Purchases</h4>
+                    <p class="text-base">Finance significant expenses like a new car, a wedding, or a dream vacation.</p>
+                </div>
+                <div class="bg-white text-gray-800 p-6 rounded-lg shadow-md flex flex-col items-center text-center">
+                    <div class="text-4xl mb-3">📈</div>
+                    <h4 class="font-bold text-xl mb-2">Investment Opportunities</h4>
+                    <p class="text-base">Use the funds for other investments, potentially growing your wealth.</p>
+                </div>
+                <div class="bg-white text-gray-800 p-6 rounded-lg shadow-md flex flex-col items-center text-center">
+                    <div class="text-4xl mb-3">🚨</div>
+                    <h4 class="font-bold text-xl mb-2">Emergency Funds</h4>
+                    <p class="text-base">Create a financial safety net for unexpected life events.</p>
+                </div>
+            </div>
+            <p class="text-lg mt-8">
+                Ready to explore how a cash-out loan can benefit you? Contact us today to learn more!
+            </p>
+            <a href="tel:903-360-1131" class="btn-primary inline-block text-lg mt-6" onclick="gtag('event', 'cash_out_quote_click', {'event_category': 'Engagement', 'event_label': 'Cash-Out Section'});">
+                Get Your Cash-Out Quote!
+            </a>
+        </div>
+    </section>
+
+    <section class="py-16 bg-gray-50">
+        <div class="container mx-auto px-4 text-center">
+            <h2 class="text-3xl font-bold text-gray-800 mb-10">Why Choose Tyler Mortgage for Your East Texas Home Loan?</h2>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div class="bg-white p-6 rounded-lg shadow-md">
+                    <div class="text-5xl mb-4 text-red-500">💰</div>
+                    <h3 class="text-xl font-semibold text-gray-800 mb-2">Competitive Rates</h3>
+                    <p class="text-gray-600">
+                        We work with a wide network of lenders to find you the lowest interest rates available for your East Texas home.
+                    </p>
+                </div>
+                <div class="bg-white p-6 rounded-lg shadow-md">
+                    <div class="text-5xl mb-4 text-red-500">🤝</div>
+                    <h3 class="text-xl font-semibold text-gray-800 mb-2">Personalized Service</h3>
+                    <p class="text-gray-600">
+                        Our experts provide tailored advice, guiding you every step of the way to secure your East Texas home loan.
+                    </p>
+                </div>
+                <div class="bg-white text-gray-800 p-6 rounded-lg shadow-md">
+                    <div class="text-5xl mb-4 text-red-500">⚡</div>
+                    <h3 class="text-xl font-semibold text-gray-800 mb-2">Fast & Easy Process</h3>
+                    <p class="text-base text-gray-600">
+                        Streamlined applications and quick approvals mean less stress for you when buying a home in East Texas.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="py-16 bg-red-700 text-white">
+        <div class="container mx-auto px-4 text-center max-w-3xl">
+            <h2 class="text-4xl font-bold mb-6">GET IN TOUCH</h2>
+            <div class="mx-auto mb-6 w-48 h-48 rounded-full overflow-hidden bg-gray-200 flex items-center justify-center">
+                <img src="https://jhill.mortgagefinancial.com/wp-content/uploads/2020/05/Jeanna-Hill-239x300.png" alt="Jeanna Hill, RMLO East Texas Mortgage Lender, jeannahill.com" class="w-full h-full object-cover">
+            </div>
+            <p class="text-xl mb-4">
+                Proudly Serving the Greater East Texas Area.
+            </p>
+            <p class="text-lg mb-4">
+                I’m here to answer any questions you might have about our products and services. Feel free to contact me using any of the following methods:
+            </p>
+            <p class="text-2xl font-semibold mb-2">Jeanna Hill</p>
+            <p class="text-lg mb-2">RMLO NMLS 253767</p>
+            <p class="text-2xl font-bold"><a href="tel:903-360-1131" class="text-white hover:underline">(903) 360-1131</a></p>
+        </div>
+    </section>
+
+    <section class="py-16 bg-red-600 text-white text-center">
+        <div class="container mx-auto px-4">
+            <h2 class="text-4xl font-bold mb-4">Ready to Get Pre-Qualified?</h2>
+            <p class="text-xl mb-8 opacity-90">
+                Don't wait! Your dream home in East Texas is closer than you think.
+            </p>
+            <a href="tel:903-360-1131" class="btn-primary inline-block bg-white text-red-600 hover:bg-gray-100 text-lg" onclick="gtag('event', 'prequalify_button_click', {'event_category': 'Engagement', 'event_label': 'Final CTA'});">
+                Get Pre-Qualified Now
+            </a>
+        </div>
+    </section>
+
+    <section class="py-12 bg-gray-800 text-white text-center">
+        <div class="container mx-auto px-4">
+            <h2 class="text-3xl font-bold mb-6">Ready to Start Your Home Loan Application?</h2>
+            <p class="text-lg mb-8">Click the button below to begin your secure online application.</p>
+            <a href="https://mortgagefinancial.com/mfsconnect/jhill/" target="_blank" class="btn-primary inline-block bg-white text-red-600 hover:bg-gray-100 text-xl" onclick="gtag('event', 'start_application_click', {'event_category': 'Outbound Link', 'event_label': 'Application Section'});">
+                Start My Application Now!
+            </a>
+        </div>
+    </section>
+
     <footer class="bg-gray-800 text-gray-300 py-8">
         <div class="container mx-auto px-4 grid grid-cols-1 md:grid-cols-3 gap-8">
-            <!-- About Us -->
             <div>
                 <h3 class="text-xl font-semibold text-white mb-4">About Us</h3>
                 <p class="text-sm mb-2">We are an independent Mortgage Company located in Tyler and are proud to be voted as the favorite lender for Tyler residents in search for a home loan. Whether you are a first-time home buyer, need down payment assistance, refinancing your current home, or purchasing a second home, Mortgage Financial Services, LLC is dedicated to providing quality service and a wide variety of products that help customers achieve their dream of home ownership. We want you to Dream Big, and leave the little things to us!</p>
                 <p class="text-sm mt-4">Company NMLS: 43021</p>
-                <p class="text-sm">Copyright Mortgage Financial Services, LLC <span id="current-year"></span></p>
+                <p class="text-sm">Copyright &copy; <span id="current-year"></span> Mortgage Financial Services, LLC</p>
             </div>
-            <!-- Contact Us & Resources -->
+
             <div>
                 <h3 class="text-xl font-semibold text-white mb-4">Contact Us</h3>
                 <address class="not-italic text-sm mb-4">
@@ -627,6 +614,7 @@
                     Southlake, TX 76092
                 </address>
                 <p class="text-sm">Phone: (903) 561-4663</p>
+
                 <h3 class="text-xl font-semibold text-white mt-6 mb-4">Resources</h3>
                 <ul class="text-sm space-y-2">
                     <li><a href="tel:903-561-4663" class="hover:text-white">Contact Us (903) 561-4663</a></li>
@@ -637,11 +625,12 @@
                     <li><a href="#" class="hover:text-white">Complaints</a></li>
                 </ul>
             </div>
-            <!-- Disclaimers & Loan Options -->
+
             <div>
                 <h3 class="text-xl font-semibold text-white mb-4">Important Disclaimers</h3>
                 <p class="text-xs mb-4">CONSUMERS WISHING TO FILE A COMPLAINT AGAINST A COMPANY OR A RESIDENTIAL MORTGAGE LOAN ORIGINATOR SHOULD COMPLETE AND SEND A COMPLAINT FORM TO THE TEXAS DEPARTMENT OF SAVINGS AND MORTGAGE LENDING, 2601 NORTH LAMAR, SUITE 201, AUSTIN, TEXAS 78705. COMPLAINT FORMS AND INSTRUCTIONS MAY BE OBTAINED FROM THE DEPARTMENT’S WEBSITE AT <a href="https://www.sml.texas.gov" target="_blank" class="underline hover:text-white">WWW.SML.TEXAS.GOV</a>. A TOLL-FREE CONSUMER HOTLINE IS AVAILABLE AT 1-877-276-5550.</p>
                 <p class="text-xs mb-4">THE DEPARTMENT MAINTAINS A RECOVERY FUND TO MAKE PAYMENTS OF CERTAIN ACTUAL OUT OF POCKET DAMAGES SUSTAINED BY BORROWERS CAUSED BY ACTS OF LICENSED RESIDENTIAL MORTGAGE LOAN ORIGINATORS. A WRITTEN APPLICATION FOR REIMBURSEMENT FROM THE RECOVERY FUND MUST BE FILED WITH AND INVESTIGATED BY THE DEPARTMENT PRIOR TO THE PAYMENT OF A CLAIM. FOR MORE INFORMATION ABOUT THE RECOVERY FUND, PLEASE CONSULT THE DEPARTMENT’S WEBSITE AT <a href="https://www.sml.texas.gov" target="_blank" class="underline hover:text-white">WWW.SML.TEXAS.GOV</a>.</p>
+
                 <h3 class="text-xl font-semibold text-white mt-6 mb-4">Mortgage Financial Services, LLC Loan Options</h3>
                 <ul class="text-sm space-y-2">
                     <li>Fixed Rate Mortgage</li>
@@ -656,52 +645,106 @@
         </div>
     </footer>
 
-    <!-- Back to Top Button -->
-    <a href="#hero" class="fixed bottom-8 right-8 bg-red-600 text-white p-3 rounded-full shadow-lg hover:bg-red-700 transition-colors duration-300 smooth-scroll">
-        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2.5" stroke="currentColor" class="w-6 h-6">
-            <path stroke-linecap="round" stroke-linejoin="round" d="M4.5 10.5L12 3m0 0l7.5 7.5M12 3v18" />
-        </svg>
-    </a>
+    <div id="testimonialsModal" class="modal-overlay">
+        <div class="modal-content">
+            <button class="modal-close-button" onclick="closeModal('testimonialsModal')">&times;</button>
+            <h3 class="text-2xl font-bold text-gray-800 mb-4">Client Testimonials</h3>
+            <p class="text-gray-700 mb-4">
+                Please note: Testimonials are hosted on an external site and will open in a new tab due to security restrictions.
+            </p>
+            <a href="https://pro.experience.com/pages/jeanna-hill-127342" target="_blank" class="btn-primary inline-block text-lg">
+                Open Testimonials in New Tab
+            </a>
+        </div>
+    </div>
 
-    <!-- JavaScript -->
+    <div id="resourcesModal" class="modal-overlay">
+        <div class="modal-content">
+            <button class="modal-close-button" onclick="closeModal('resourcesModal')">&times;</button>
+            <h3 class="text-2xl font-bold text-gray-800 mb-4">Information Resources</h3>
+            <div class="text-gray-700 text-left space-y-6">
+                <div>
+                    <h4 class="text-xl font-semibold mb-2">STEP-BY-STEP MORTGAGE GUIDE</h4>
+                    <p class="mb-3">Provided by Freddie Mac, in this guide, you will learn about one of the most important steps in the homebuying process—obtaining a mortgage. The materials in this guide will take you from application to closing, and they’ll even address the first months of homeownership to show you the kinds of things you need to do to keep your home. Knowing what to expect will give you the confidence you need to make the best decisions about your home purchase.</p>
+                    <a href="https://sf.freddiemac.com/content/_assets/resources/pdf/update/step_by_step_mortgage_guide_english.pdf" target="_blank" class="btn-primary inline-block text-sm">
+                        Access Guide
+                    </a>
+                </div>
+                <div>
+                    <h4 class="text-xl font-semibold mb-2">CHECKLIST FOR LOAN APPLICANTS</h4>
+                    <p class="mb-3">When you apply for a loan, you typically need to provide quite a bit of information to your lender. This allows your lender to verify your income and assets. Start gathering this information when you decide to buy a home so that your mortgage application processing will go as quickly as possible. This checklist will help you pull together what you need:</p>
+                    <ul class="list-disc list-inside space-y-1 ml-4">
+                        <li>W-2 forms from the previous two years, if you collect a paycheck</li>
+                        <li>Recent paycheck stubs (30 days)</li>
+                        <li>Federal tax returns for the past two years (include all schedules and pages)</li>
+                        <li>Most recent 2-months bank statements, all pages (please do not send screen shots)</li>
+                        <li>Most recent 401K statement, if applicable</li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="text-xl font-semibold mb-2">MAINTAIN YOUR FICO SCORE</h4>
+                    <p class="mb-3">Your FICO score is what most lenders use to calculate your credit risk. They use it to decide whether to offer credit to potential borrowers and at what interest rate. It is made up of 5 elements:</p>
+                    <ul class="list-disc list-inside space-y-1 ml-4 mb-3">
+                        <li><span class="font-bold">Payment History:</span> (35% of the total credit score) Included is the borrower’s payment history with the repayment of past debt the most important factor.</li>
+                        <li><span class="font-bold">Credit Utilization:</span> (30% of the total credit score) This is the percentage of available credit that has been borrowed.</li>
+                        <li><span class="font-bold">Length of Credit History:</span> (15% of the total credit score) This is the length of time each account has been open and the length of time since the account’s most recent action.</li>
+                        <li><span class="font-bold">New Credit:</span> (10% of the total credit score) Borrowers should avoid opening too many credit lines at the same time.</li>
+                        <li><span class="font-bold">Credit Mix:</span> (10% of the total credit score) This is the combination of different types of credit such as revolving and installment.</li>
+                    </ul>
+                    <p class="font-bold mb-2">Tips for Maintaining or Repairing Your FICO Credit Score:</p>
+                    <ul class="list-disc list-inside space-y-1 ml-4">
+                        <li>Check your credit report to make sure that there is no incorrect information in it such as late payments incorrectly listed and that amounts owed are correct. If there are errors, dispute them with the credit bureau.</li>
+                        <li>Setup payment reminders. Making payments on time is one of the most important factors in calculating the credit score.</li>
+                        <li>Consider enrolling in automatic payments through your credit card and loan providers to have payments debited from your bank account to ensure that payments are timely.</li>
+                        <li>Reduce your amount of debt. The first step is to stop using your credit cards. Analyze what accounts are charging the highest interest rates and attach paying those off first.</li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="text-xl font-semibold mb-2">HUD HOMEBUYER'S TOOLKIT</h4>
+                    <p class="mb-3">To help protect consumers, the Consumer Protection Bureau has developed this toolkit to assist homebuyers in the home-buying process. This publication will help you make the most of your mortgage, and help you decide on the best home loan product for you.</p>
+                    <a href="https://files.consumerfinance.gov/f/201503_cfpb_your-home-loan-toolkit-web.pdf" target="_blank" class="btn-primary inline-block text-sm">
+                        Access Toolkit
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+
     <script>
         // Set current year in footer
-        const currentYearEl = document.getElementById('current-year');
-        if (currentYearEl) {
-            currentYearEl.textContent = new Date().getFullYear();
-        }
-    
+        document.getElementById('current-year').textContent = new Date().getFullYear(); 
+
         // Mortgage Calculator Logic
         document.getElementById('calculateMortgage').addEventListener('click', function() {
             const mortgageAmount = parseFloat(document.getElementById('mortgageAmount').value);
             const downPayment = parseFloat(document.getElementById('downPayment').value);
             const interestRate = parseFloat(document.getElementById('interestRate').value);
             const amortizationPeriod = parseFloat(document.getElementById('amortizationPeriod').value);
-    
+
             if (isNaN(mortgageAmount) || isNaN(downPayment) || isNaN(interestRate) || isNaN(amortizationPeriod) || mortgageAmount <= 0 || interestRate < 0 || amortizationPeriod <= 0 || downPayment < 0) {
                 document.getElementById('monthlyPayment').innerText = 'Invalid Input';
                 return;
             }
-    
+
             const loanPrincipal = mortgageAmount - downPayment;
             if (loanPrincipal <= 0) {
                 document.getElementById('monthlyPayment').innerText = 'Invalid Loan Amount';
                 return;
             }
-    
+
             const monthlyInterestRate = (interestRate / 100) / 12;
             const numberOfPayments = amortizationPeriod * 12;
-    
+
             let monthlyPayment;
             if (monthlyInterestRate === 0) {
                 monthlyPayment = loanPrincipal / numberOfPayments;
             } else {
                 monthlyPayment = loanPrincipal * (monthlyInterestRate * Math.pow(1 + monthlyInterestRate, numberOfPayments)) / (Math.pow(1 + monthlyInterestRate, numberOfPayments) - 1);
             }
-    
+
             document.getElementById('monthlyPayment').innerText = `$${monthlyPayment.toFixed(2)}`;
         });
-    
+
         // Clear Mortgage Calculator Fields
         document.getElementById('clearMortgage').addEventListener('click', function() {
             document.getElementById('mortgageAmount').value = '250000';
@@ -710,112 +753,88 @@
             document.getElementById('amortizationPeriod').value = '30';
             document.getElementById('monthlyPayment').innerText = '$0.00';
         });
-    
+
         // Smooth scroll for top button
         document.querySelectorAll('.smooth-scroll').forEach(anchor => {
-            anchor.addEventListener('click', function(e) {
+            anchor.addEventListener('click', function (e) {
                 e.preventDefault();
                 document.querySelector(this.getAttribute('href')).scrollIntoView({
                     behavior: 'smooth'
                 });
             });
         });
-    
+
         // Accordion Logic
         document.addEventListener('DOMContentLoaded', function() {
             const accordionHeaders = document.querySelectorAll('.accordion-header');
+
             accordionHeaders.forEach(header => {
                 header.addEventListener('click', function() {
                     const accordionItem = this.closest('.accordion-item');
+                    const isExpanded = accordionItem.classList.contains('active');
                     accordionItem.classList.toggle('active');
+                    this.setAttribute('aria-expanded', !isExpanded);
                 });
             });
         });
-    
+
         // Web3Forms Form Submission Logic
         const form = document.getElementById('mortgageLeadForm');
         const formMessage = document.getElementById('form-message');
-    
-        if (form && formMessage) {
-            form.addEventListener('submit', async function(event) {
-                event.preventDefault(); // Prevent default form submission
-    
-                const formData = new FormData(form);
-                const object = Object.fromEntries(formData);
-                const json = JSON.stringify(object);
-    
-                formMessage.classList.remove('hidden', 'text-green-500', 'text-red-500');
-                formMessage.classList.add('text-white'); // Keep text white during loading
-                formMessage.innerText = 'Submitting...';
-    
-                try {
-                    const response = await fetch('https://api.web3forms.com/submit', {
-                        method: 'POST',
-                        headers: {
-                            'Content-Type': 'application/json',
-                            'Accept': 'application/json'
-                        },
-                        body: json
-                    });
-    
-                    const result = await response.json();
-    
-                    if (response.ok) {
-                        formMessage.classList.remove('text-white');
-                        formMessage.classList.add('text-green-500');
-                        formMessage.innerText = 'Thank you! Your message has been sent successfully.';
-                        form.reset(); // Clear the form fields on success
-                    } else {
-                        console.error('Web3Forms submission error:', result);
-                        formMessage.classList.remove('text-white');
-                        formMessage.classList.add('text-red-500');
-                        formMessage.innerText = result.message || 'There was an error submitting your form. Please try again.';
-                    }
-                } catch (error) {
-                    console.error('Network or unexpected error:', error);
+
+        form.addEventListener('submit', async function(event) {
+            event.preventDefault(); // Prevent default form submission
+
+            const formData = new FormData(form);
+            const object = Object.fromEntries(formData);
+            const json = JSON.stringify(object);
+
+            formMessage.classList.remove('hidden', 'text-green-500', 'text-red-500');
+            formMessage.classList.add('text-white'); // Keep text white during loading
+            formMessage.innerText = 'Submitting...';
+
+            try {
+                const response = await fetch('https://api.web3forms.com/submit', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                        'Accept': 'application/json'
+                    },
+                    body: json
+                });
+
+                const result = await response.json();
+
+                if (response.ok) {
+                    formMessage.classList.remove('text-white');
+                    formMessage.classList.add('text-green-500');
+                    formMessage.innerText = 'Thank you! Your message has been sent successfully.';
+                    form.reset(); // Clear the form fields on success
+                } else {
+                    console.error('Web3Forms submission error:', result);
                     formMessage.classList.remove('text-white');
                     formMessage.classList.add('text-red-500');
-                    formMessage.innerText = 'A network error occurred. Please check your connection and try again.';
-                } finally {
-                    formMessage.classList.remove('hidden');
+                    formMessage.innerText = result.message || 'There was an error submitting your form. Please try again.';
                 }
-            });
-        }
-    
-        // Modal functions
+            } catch (error) {
+                console.error('Network or unexpected error:', error);
+                formMessage.classList.remove('text-white');
+                formMessage.classList.add('text-red-500');
+                formMessage.innerText = 'A network error occurred. Please check your connection and try again.';
+            } finally {
+                formMessage.classList.remove('hidden');
+            }
+        });
+
+        // Function to open a modal
         function openModal(modalId) {
-            const modal = document.getElementById(modalId);
-            if (modal) {
-                modal.classList.add('active');
-            }
+            document.getElementById(modalId).classList.add('active');
         }
-    
+
+        // Function to close a modal
         function closeModal(modalId) {
-            const modal = document.getElementById(modalId);
-            if (modal) {
-                modal.classList.remove('active');
-            }
+            document.getElementById(modalId).classList.remove('active');
         }
-    
-        // Mobile Menu Logic
-        const mobileMenuButton = document.getElementById('mobile-menu-button');
-        const closeMobileMenuButton = document.getElementById('close-mobile-menu');
-        const mobileMenu = document.getElementById('mobile-menu');
-    
-        mobileMenuButton.addEventListener('click', function() {
-            mobileMenu.classList.remove('-translate-x-full');
-        });
-    
-        closeMobileMenuButton.addEventListener('click', function() {
-            mobileMenu.classList.add('-translate-x-full');
-        });
-    
-        document.querySelectorAll('#mobile-menu a').forEach(link => {
-            link.addEventListener('click', function() {
-                mobileMenu.classList.add('-translate-x-full');
-            });
-        });
-    
     </script>
 </body>
 </html>
