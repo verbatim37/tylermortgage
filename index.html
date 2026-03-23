@@ -57,6 +57,8 @@
             transition: all 0.3s ease;
             text-transform: uppercase;
             letter-spacing: 0.025em;
+            cursor: pointer;
+            border: none;
         }
         .btn-primary:hover {
             background-color: #b91c1c;
@@ -73,9 +75,8 @@
         }
         .input-field:focus {
             outline: none;
-            ring: 2px;
-            ring-color: #ef4444;
             border-color: #ef4444;
+            box-shadow: 0 0 0 2px rgba(239, 68, 68, 0.2);
         }
         
         /* Accordion Custom */
@@ -106,7 +107,7 @@
             box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
         }
         .accordion-item.active .accordion-content {
-            max-height: 300px;
+            max-height: 500px;
             padding: 0 1.25rem 1.25rem 1.25rem;
         }
         .accordion-icon {
@@ -115,6 +116,54 @@
         }
         .accordion-item.active .accordion-icon {
             transform: rotate(180deg);
+        }
+
+        /* Modal Styles */
+        .modal-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.75);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 1000;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s ease;
+            backdrop-filter: blur(4px);
+        }
+        .modal-overlay.active {
+            opacity: 1;
+            visibility: visible;
+        }
+        .modal-content {
+            background-color: #ffffff;
+            padding: 2.5rem;
+            border-radius: 1.25rem;
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+            position: relative;
+            max-width: 900px;
+            width: 95%;
+            max-height: 90vh;
+            overflow-y: auto;
+            transform: translateY(20px);
+            transition: all 0.3s ease;
+        }
+        .modal-overlay.active .modal-content {
+            transform: translateY(0);
+        }
+        .modal-close-button {
+            position: absolute;
+            top: 1rem;
+            right: 1.5rem;
+            background: none;
+            border: none;
+            font-size: 2rem;
+            cursor: pointer;
+            color: #64748b;
         }
 
         .what-we-do-image {
@@ -140,10 +189,6 @@
             height: 4px;
             background-color: #ef4444;
             border-radius: 2px;
-        }
-        .section-title-left::after {
-            left: 0;
-            transform: none;
         }
     </style>
 </head>
@@ -205,7 +250,7 @@
 
                 <div class="col-span-1 md:col-span-2 mt-2">
                     <div id="form-message" class="text-center font-bold mb-4 hidden"></div>
-                    <button type="submit" class="w-full bg-white text-red-600 hover:bg-slate-100 py-4 rounded-lg font-black text-xl shadow-lg transition-all">
+                    <button type="submit" class="w-full bg-white text-red-600 hover:bg-slate-100 py-4 rounded-lg font-black text-xl shadow-lg transition-all uppercase">
                         SUBMIT INQUIRY
                     </button>
                 </div>
@@ -213,94 +258,99 @@
         </div>
     </div>
 
-    <!-- Partner & Features Section -->
+    <!-- Partner Section -->
     <section class="py-16 bg-white overflow-hidden">
         <div class="container mx-auto px-4">
             <div class="flex flex-col lg:flex-row items-center gap-12">
-                <div class="lg:w-1/2">
+                <div class="lg:w-1/2 text-center lg:text-left">
                     <h2 class="text-3xl md:text-4xl font-black text-slate-900 mb-6 leading-tight">
                         YOUR HOME LOAN PARTNER <br><span class="text-red-600">IN EAST TEXAS</span>
                     </h2>
                     <p class="text-lg text-slate-600 mb-6 leading-relaxed">
                         We help East Texas homebuyers achieve their dream of homeownership. With the right products and quality service, we partner with you throughout the entire home loan process.
                     </p>
-                    <div class="bg-red-50 border-l-4 border-red-500 p-4 mb-8">
+                    <div class="bg-red-50 border-l-4 border-red-500 p-4 mb-8 text-left">
                         <p class="text-red-900 font-bold italic">
                             "You deserve a home. You deserve the right product. You deserve the best service."
                         </p>
                     </div>
                     <a href="#lead-form" class="btn-primary inline-block">Get Started Today</a>
                 </div>
-                <div class="lg:w-1/2 relative">
-                    <div class="absolute -top-4 -left-4 w-24 h-24 bg-red-100 rounded-full z-0 opacity-50"></div>
+                <div class="lg:w-1/2">
                     <img src="https://github.com/verbatim37/tylermortgage/blob/main/Tyler_today_1_magazine-ad_jeanna.hill_-p9h9omqqi4bs9xeoo4tnrsn3rozoyj1mce2rj5p9pg.png?raw=true" 
                          alt="Mortgage Partner" 
-                         class="relative z-10 w-full rounded-2xl shadow-2xl max-w-md mx-auto object-contain">
+                         class="w-full rounded-2xl shadow-2xl max-w-md mx-auto object-contain">
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Calculator & Facts Grid -->
+    <!-- Calculator & Why Section -->
     <section class="py-16 bg-slate-900 text-white">
-        <div class="container mx-auto px-4 max-w-6xl">
-            <h2 class="text-3xl font-black mb-12 text-center section-title">Your Mortgage Journey Starts Here</h2>
-            <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 items-start">
+        <div class="container mx-auto px-4 max-w-6xl text-center">
+            <h2 class="text-3xl font-black mb-12 section-title">Plan Your Purchase</h2>
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 items-stretch text-left">
                 
                 <!-- Mortgage Calculator Card -->
-                <div class="bg-white text-slate-800 p-8 rounded-2xl shadow-xl">
-                    <h3 class="text-2xl font-black mb-6 flex items-center gap-2">
-                        <span class="text-red-600">🧮</span> Mortgage Calculator
-                    </h3>
-                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-6">
-                        <div>
-                            <label class="block text-xs font-bold text-slate-400 uppercase tracking-widest mb-1">Mortgage Amount ($)</label>
-                            <input type="number" id="mortgageAmount" class="input-field bg-slate-50" value="250000">
-                        </div>
-                        <div>
-                            <label class="block text-xs font-bold text-slate-400 uppercase tracking-widest mb-1">Down Payment ($)</label>
-                            <input type="number" id="downPayment" class="input-field bg-slate-50" value="50000">
-                        </div>
-                        <div>
-                            <label class="block text-xs font-bold text-slate-400 uppercase tracking-widest mb-1">Interest Rate (%)</label>
-                            <input type="number" id="interestRate" class="input-field bg-slate-50" value="4.5" step="0.01">
-                        </div>
-                        <div>
-                            <label class="block text-xs font-bold text-slate-400 uppercase tracking-widest mb-1">Period (Years)</label>
-                            <input type="number" id="amortizationPeriod" class="input-field bg-slate-50" value="30">
+                <div class="bg-white text-slate-800 p-8 rounded-2xl shadow-xl flex flex-col justify-between">
+                    <div>
+                        <h3 class="text-2xl font-black mb-6 flex items-center gap-2">
+                            <span class="text-red-600">🧮</span> Mortgage Calculator
+                        </h3>
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-6">
+                            <div>
+                                <label class="block text-xs font-bold text-slate-400 uppercase tracking-widest mb-1">Mortgage Amount ($)</label>
+                                <input type="number" id="mortgageAmount" class="input-field bg-slate-50" value="250000">
+                            </div>
+                            <div>
+                                <label class="block text-xs font-bold text-slate-400 uppercase tracking-widest mb-1">Down Payment ($)</label>
+                                <input type="number" id="downPayment" class="input-field bg-slate-50" value="50000">
+                            </div>
+                            <div>
+                                <label class="block text-xs font-bold text-slate-400 uppercase tracking-widest mb-1">Interest Rate (%)</label>
+                                <input type="number" id="interestRate" class="input-field bg-slate-50" value="4.5" step="0.01">
+                            </div>
+                            <div>
+                                <label class="block text-xs font-bold text-slate-400 uppercase tracking-widest mb-1">Period (Years)</label>
+                                <input type="number" id="amortizationPeriod" class="input-field bg-slate-50" value="30">
+                            </div>
                         </div>
                     </div>
-                    <div class="bg-slate-900 text-white rounded-xl p-6 text-center mb-6">
-                        <span class="text-sm font-bold uppercase tracking-widest opacity-70">Estimated Monthly Payment</span>
-                        <div id="monthlyPayment" class="text-4xl font-black text-red-500 mt-1">$0.00</div>
-                    </div>
-                    <div class="flex gap-2">
-                        <button id="calculateMortgage" class="btn-primary flex-1">Calculate</button>
-                        <button id="clearMortgage" class="bg-slate-200 text-slate-600 px-6 rounded-lg font-bold hover:bg-slate-300">Clear</button>
+                    <div>
+                        <div class="bg-slate-900 text-white rounded-xl p-6 text-center mb-6">
+                            <span class="text-sm font-bold uppercase tracking-widest opacity-70">Monthly Payment</span>
+                            <div id="monthlyPayment" class="text-4xl font-black text-red-500 mt-1">$0.00</div>
+                        </div>
+                        <div class="flex gap-2">
+                            <button id="calculateMortgage" class="btn-primary flex-1">Calculate</button>
+                            <button id="clearMortgage" class="bg-slate-200 text-slate-600 px-6 rounded-lg font-bold hover:bg-slate-300">Clear</button>
+                        </div>
                     </div>
                 </div>
 
                 <!-- Facts Card -->
-                <div class="bg-slate-800 border border-slate-700 p-8 rounded-2xl h-full flex flex-col">
-                    <h3 class="text-2xl font-black mb-6">Why Get <span class="text-red-500">Pre-Qualified?</span></h3>
-                    <ul class="space-y-5 flex-grow">
-                        <li class="flex items-start gap-3">
-                            <span class="text-red-500 text-xl font-black">✓</span>
-                            <div><strong class="text-white block">Know Your Budget</strong> Stop guessing and start shopping for homes you can actually afford.</div>
-                        </li>
-                        <li class="flex items-start gap-3">
-                            <span class="text-red-500 text-xl font-black">✓</span>
-                            <div><strong class="text-white block">Strengthen Your Offer</strong> Sellers prioritize buyers with a pre-qualification letter.</div>
-                        </li>
-                        <li class="flex items-start gap-3">
-                            <span class="text-red-500 text-xl font-black">✓</span>
-                            <div><strong class="text-white block">Faster Closing</strong> We identify financial concerns early, speeding up your final approval.</div>
-                        </li>
-                        <li class="flex items-start gap-3">
-                            <span class="text-red-500 text-xl font-black">✓</span>
-                            <div><strong class="text-white block">Peace of Mind</strong> Shop with total confidence knowing your financing is handled.</div>
-                        </li>
-                    </ul>
+                <div class="bg-slate-800 border border-slate-700 p-8 rounded-2xl flex flex-col justify-between">
+                    <div>
+                        <h3 class="text-2xl font-black mb-6">Why Get <span class="text-red-500">Pre-Qualified?</span></h3>
+                        <ul class="space-y-4">
+                            <li class="flex items-start gap-3">
+                                <span class="text-red-500 text-xl font-black">✓</span>
+                                <div><strong class="text-white block">Know Your Budget</strong> Stop guessing and start shopping for homes you can afford.</div>
+                            </li>
+                            <li class="flex items-start gap-3">
+                                <span class="text-red-500 text-xl font-black">✓</span>
+                                <div><strong class="text-white block">Strengthen Your Offer</strong> Sellers prioritize buyers with pre-qualification letters.</div>
+                            </li>
+                            <li class="flex items-start gap-3">
+                                <span class="text-red-500 text-xl font-black">✓</span>
+                                <div><strong class="text-white block">Faster Closing</strong> Speeds up the final loan approval once you find a home.</div>
+                            </li>
+                            <li class="flex items-start gap-3">
+                                <span class="text-red-500 text-xl font-black">✓</span>
+                                <div><strong class="text-white block">Identify Early Issues</strong> Address credit concerns before they become roadblocks.</div>
+                            </li>
+                        </ul>
+                    </div>
                     <a href="#lead-form" class="btn-primary mt-8 text-center block py-4">GET QUALIFIED NOW</a>
                 </div>
 
@@ -309,44 +359,44 @@
     </section>
 
     <!-- Cash-Out Section -->
-    <section id="home-equity-cash-out-section" class="py-16 bg-red-600 text-white">
+    <section class="py-16 bg-red-600 text-white">
         <div class="container mx-auto px-4 text-center max-w-5xl">
             <div class="text-6xl mb-6">💰</div>
             <h2 class="text-3xl md:text-5xl font-black mb-6">Unlock Your Home's Equity</h2>
             <p class="text-xl mb-12 max-w-3xl mx-auto opacity-90">
-                A Home Equity Cash-Out Loan allows you to convert property value into liquid cash for major life goals.
+                Convert your property value into liquid cash for major life goals.
             </p>
             
-            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-                <div class="bg-white/10 backdrop-blur-sm p-6 rounded-2xl text-left border border-white/20">
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 text-left">
+                <div class="bg-white/10 backdrop-blur-sm p-6 rounded-2xl border border-white/20">
                     <div class="text-3xl mb-3">💳</div>
                     <h4 class="font-black text-xl mb-2">Debt Consolidation</h4>
-                    <p class="text-sm opacity-90">Pay off high-interest cards and personal loans to lower your total monthly expenses.</p>
+                    <p class="text-sm opacity-90">Pay off high-interest debt and lower your monthly expenses.</p>
                 </div>
-                <div class="bg-white/10 backdrop-blur-sm p-6 rounded-2xl text-left border border-white/20">
+                <div class="bg-white/10 backdrop-blur-sm p-6 rounded-2xl border border-white/20">
                     <div class="text-3xl mb-3">🏡</div>
-                    <h4 class="font-black text-xl mb-2">Home Improvements</h4>
-                    <p class="text-sm opacity-90">Fund major renovations or repairs to significantly increase your property's value.</p>
+                    <h4 class="font-black text-xl mb-2">Home Improvement</h4>
+                    <p class="text-sm opacity-90">Fund renovations that significantly increase property value.</p>
                 </div>
-                <div class="bg-white/10 backdrop-blur-sm p-6 rounded-2xl text-left border border-white/20">
+                <div class="bg-white/10 backdrop-blur-sm p-6 rounded-2xl border border-white/20">
                     <div class="text-3xl mb-3">🎓</div>
                     <h4 class="font-black text-xl mb-2">Education Costs</h4>
-                    <p class="text-sm opacity-90">Cover tuition fees or student loans for yourself or your family members.</p>
+                    <p class="text-sm opacity-90">Cover tuition fees or student loans for your family.</p>
                 </div>
-                <div class="bg-white/10 backdrop-blur-sm p-6 rounded-2xl text-left border border-white/20">
+                <div class="bg-white/10 backdrop-blur-sm p-6 rounded-2xl border border-white/20">
                     <div class="text-3xl mb-3">🛒</div>
                     <h4 class="font-black text-xl mb-2">Major Purchases</h4>
-                    <p class="text-sm opacity-90">Finance significant life milestones like weddings, vehicles, or dream vacations.</p>
+                    <p class="text-sm opacity-90">Finance life milestones like weddings or vehicles.</p>
                 </div>
-                <div class="bg-white/10 backdrop-blur-sm p-6 rounded-2xl text-left border border-white/20">
+                <div class="bg-white/10 backdrop-blur-sm p-6 rounded-2xl border border-white/20">
                     <div class="text-3xl mb-3">📈</div>
                     <h4 class="font-black text-xl mb-2">Investments</h4>
-                    <p class="text-sm opacity-90">Use existing equity to seed new investment opportunities and grow your wealth.</p>
+                    <p class="text-sm opacity-90">Use equity to seed new growth and wealth opportunities.</p>
                 </div>
-                <div class="bg-white/10 backdrop-blur-sm p-6 rounded-2xl text-left border border-white/20">
+                <div class="bg-white/10 backdrop-blur-sm p-6 rounded-2xl border border-white/20">
                     <div class="text-3xl mb-3">🚨</div>
                     <h4 class="font-black text-xl mb-2">Emergency Fund</h4>
-                    <p class="text-sm opacity-90">Establish a safe financial safety net for any of life's unexpected events.</p>
+                    <p class="text-sm opacity-90">Establish a safety net for any of life's unexpected events.</p>
                 </div>
             </div>
 
@@ -358,36 +408,49 @@
         </div>
     </section>
 
-    <!-- Loan Programs Section -->
+    <!-- Resources Section -->
     <section class="py-16 bg-slate-50">
+        <div class="container mx-auto px-4 text-center max-w-3xl">
+            <h2 class="text-3xl md:text-4xl font-black text-slate-900 mb-6 section-title">Information Resources</h2>
+            <p class="text-lg text-slate-600 mb-8 font-medium">
+                Access helpful guides and checklists to navigate your homebuying journey.
+            </p>
+            <button onclick="openModal('resourcesModal')" class="btn-primary inline-block text-lg px-12 py-4 shadow-lg">
+                View All Resources
+            </button>
+        </div>
+    </section>
+
+    <!-- Loan Programs Section -->
+    <section class="py-16 bg-white">
         <div class="container mx-auto px-4 max-w-4xl">
             <h2 class="text-3xl md:text-4xl font-black text-center mb-12 text-slate-900 section-title">Home Loan Programs</h2>
-            <div class="grid grid-cols-1 gap-3">
+            <div class="space-y-3">
                 <div class="accordion-item">
                     <div class="accordion-header">
                         <span>Fixed Rate Mortgage</span>
                         <span class="accordion-icon">▼</span>
                     </div>
                     <div class="accordion-content">
-                        <p class="text-slate-600">Stable interest rates and predictable monthly payments, protecting you from rate increases. Ideal for long-term homeowners.</p>
+                        <p class="text-slate-600">Predictable monthly payments and stable interest rates, protecting you from future increases. Ideal for long-term ownership.</p>
                     </div>
                 </div>
                 <div class="accordion-item">
                     <div class="accordion-header">
-                        <span>FHA Loan</span>
+                        <span>FHA Home Loan</span>
                         <span class="accordion-icon">▼</span>
                     </div>
                     <div class="accordion-content">
-                        <p class="text-slate-600">Low down payments (3.5%) and flexible credit requirements. Perfect for first-time buyers.</p>
+                        <p class="text-slate-600">Insured by the FHA, these loans offer low down payments (as low as 3.5%) and flexible credit score requirements.</p>
                     </div>
                 </div>
                 <div class="accordion-item">
                     <div class="accordion-header">
-                        <span>VA Loan</span>
+                        <span>VA Home Loan</span>
                         <span class="accordion-icon">▼</span>
                     </div>
                     <div class="accordion-content">
-                        <p class="text-slate-600">Zero down payment and competitive rates for eligible military members and veterans.</p>
+                        <p class="text-slate-600">Exclusive benefit for veterans and active service members. Usually features zero down payment and competitive rates.</p>
                     </div>
                 </div>
                 <div class="accordion-item">
@@ -396,7 +459,7 @@
                         <span class="accordion-icon">▼</span>
                     </div>
                     <div class="accordion-content">
-                        <p class="text-slate-600">Consolidate debt, fund improvements, or pay for major expenses by leveraging your home equity.</p>
+                        <p class="text-slate-600">Access the cash value of your home to consolidate debt, fund improvements, or cover significant expenses.</p>
                     </div>
                 </div>
             </div>
@@ -404,29 +467,29 @@
     </section>
 
     <!-- Content & Images Section -->
-    <section id="what-we-do-section" class="py-16 bg-white">
+    <section class="py-16 bg-slate-50">
         <div class="container mx-auto px-4 max-w-5xl">
             <div class="text-center mb-10">
-                <h2 class="text-3xl md:text-4xl font-black text-slate-900 mb-6 section-title">What We Do for East Texas Homebuyers</h2>
+                <h2 class="text-3xl md:text-4xl font-black text-slate-900 mb-6 section-title">What We Do for East Texas</h2>
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
                     <img src="https://github.com/verbatim37/tylermortgage/blob/main/happyfamilymortgage.png?raw=true" alt="Family 1" class="what-we-do-image shadow-lg">
                     <img src="https://github.com/verbatim37/tylermortgage/blob/main/happyfamilymortgage2.png?raw=true" alt="Family 2" class="what-we-do-image shadow-lg">
                 </div>
-                <p class="text-lg text-slate-600 leading-relaxed italic">
-                    We help East Texas homebuyers achieve the American Dream. Whether you're a first-time buyer or purchasing a second home, Mortgage Financial Services, LLC provides quality service and products to guide you through the process. Dream big, and let us handle the details!
+                <p class="text-lg text-slate-600 leading-relaxed italic max-w-4xl mx-auto">
+                    We help East Texas homebuyers achieve the American Dream. Whether you're a first-time buyer or purchasing a second home, Mortgage Financial Services, LLC provides quality service and products to guide you through every step. Dream big, and let us handle the details!
                 </p>
             </div>
         </div>
     </section>
 
     <!-- Contact CTA Section -->
-    <section class="py-20 bg-slate-900 text-white relative">
+    <section class="py-20 bg-slate-900 text-white">
         <div class="container mx-auto px-4 text-center">
             <div class="mb-8 w-40 h-40 rounded-full border-4 border-red-500 overflow-hidden mx-auto shadow-2xl">
                 <img src="https://jhill.mortgagefinancial.com/wp-content/uploads/2020/05/Jeanna-Hill-239x300.png" alt="Jeanna Hill" class="w-full h-full object-cover">
             </div>
             <h2 class="text-4xl font-black mb-4 uppercase tracking-tight">GET IN TOUCH</h2>
-            <p class="text-xl text-red-500 font-bold mb-2">Jeanna Hill</p>
+            <p class="text-xl text-red-500 font-bold mb-2 uppercase">Jeanna Hill</p>
             <p class="text-slate-400 mb-8 font-medium">RMLO NMLS 253767 | Serving Greater East Texas</p>
             <div class="flex flex-col md:flex-row justify-center gap-4">
                 <a href="tel:9033601131" class="bg-red-600 hover:bg-red-700 px-8 py-4 rounded-lg font-black text-xl transition-all shadow-xl">
@@ -439,11 +502,11 @@
         </div>
     </section>
 
-    <!-- Application Link -->
+    <!-- Formal Application Section -->
     <section class="py-12 bg-red-600 text-white">
         <div class="container mx-auto px-4 text-center">
             <h3 class="text-2xl font-black mb-6 uppercase tracking-wider">Ready to Start Your Formal Application?</h3>
-            <a href="https://mortgagefinancial.com/mfsconnect/jhill/" target="_blank" class="bg-white text-red-600 px-10 py-4 rounded-lg font-black hover:bg-red-50 transition-all shadow-lg inline-block">
+            <a href="https://mortgagefinancial.com/mfsconnect/jhill/" target="_blank" class="bg-white text-red-600 px-10 py-4 rounded-lg font-black hover:bg-red-50 transition-all shadow-lg inline-block uppercase">
                 START SECURE APPLICATION
             </a>
         </div>
@@ -451,14 +514,14 @@
 
     <!-- Footer -->
     <footer class="bg-slate-950 text-slate-400 py-16 border-t border-slate-800">
-        <div class="container mx-auto px-4 grid grid-cols-1 md:grid-cols-3 gap-12 text-sm">
+        <div class="container mx-auto px-4 grid grid-cols-1 md:grid-cols-3 gap-12 text-sm text-center md:text-left">
             <div>
                 <h4 class="text-white font-black text-lg mb-4 uppercase">About Us</h4>
-                <p class="leading-relaxed">We are an independent Mortgage Company in Tyler. Voted favorite lender for Tyler residents. dedicated to providing quality service and products that help customers achieve home ownership.</p>
+                <p class="leading-relaxed">We are an independent Mortgage Company in Tyler, voted favorite lender for residents. Dedicated to providing quality service and products to achieve home ownership.</p>
                 <p class="mt-4 font-bold text-slate-300">Company NMLS: 43021</p>
             </div>
             <div>
-                <h4 class="text-white font-black text-lg mb-4 uppercase tracking-widest">Resources</h4>
+                <h4 class="text-white font-black text-lg mb-4 uppercase tracking-widest">Legal & Privacy</h4>
                 <ul class="space-y-2">
                     <li><a href="tel:9035614663" class="hover:text-red-500 transition-colors">Contact Us (903) 561-4663</a></li>
                     <li><a href="https://jhill.mortgagefinancial.com" target="_blank" class="hover:text-red-500 transition-colors">NMLS Consumer Access</a></li>
@@ -468,9 +531,9 @@
                 </ul>
             </div>
             <div>
-                <h4 class="text-white font-black text-lg mb-4 uppercase">Disclaimers</h4>
-                <p class="mb-4 text-xs opacity-75">CONSUMERS WISHING TO FILE A COMPLAINT SHOULD CONTACT THE TEXAS DEPARTMENT OF SAVINGS AND MORTGAGE LENDING AT WWW.SML.TEXAS.GOV.</p>
-                <p class="text-xs opacity-75">Mortgage rates and terms are subject to change without notice. All loans are subject to credit approval and program guidelines. This is not a commitment to lend.</p>
+                <h4 class="text-white font-black text-lg mb-4 uppercase">Complaints</h4>
+                <p class="mb-4 text-xs opacity-75 leading-relaxed">CONSUMERS WISHING TO FILE A COMPLAINT SHOULD CONTACT THE TEXAS DEPARTMENT OF SAVINGS AND MORTGAGE LENDING AT WWW.SML.TEXAS.GOV.</p>
+                <p class="text-xs opacity-75 leading-relaxed">Mortgage rates and terms are subject to change without notice. All loans are subject to credit approval. This is not a commitment to lend.</p>
             </div>
         </div>
         <div class="container mx-auto px-4 mt-12 pt-8 border-t border-slate-900 text-center text-xs tracking-widest uppercase font-bold">
@@ -478,22 +541,53 @@
         </div>
     </footer>
 
-    <!-- Resources Modal -->
+    <!-- Resources Modal (Fixed) -->
     <div id="resourcesModal" class="modal-overlay">
         <div class="modal-content">
             <button class="modal-close-button" onclick="closeModal('resourcesModal')">&times;</button>
-            <h3 class="text-2xl font-bold text-slate-900 mb-4">Mortgage Resources</h3>
-            <div class="space-y-4">
-                <a href="https://sf.freddiemac.com/content/_assets/resources/pdf/update/step_by_step_mortgage_guide_english.pdf" target="_blank" class="block p-4 bg-slate-50 rounded-lg hover:bg-slate-100 transition-all font-bold text-red-600 uppercase tracking-widest text-sm">Step-by-Step Mortgage Guide</a>
-                <a href="https://files.consumerfinance.gov/f/201503_cfpb_your-home-loan-toolkit-web.pdf" target="_blank" class="block p-4 bg-slate-50 rounded-lg hover:bg-slate-100 transition-all font-bold text-red-600 uppercase tracking-widest text-sm">HUD Homebuyer's Toolkit</a>
-                <div class="p-4 bg-slate-50 rounded-lg">
-                    <p class="font-bold text-xs uppercase mb-2">Checklist for Loan Applicants</p>
-                    <ul class="text-xs space-y-1 opacity-75">
-                        <li>• W-2 forms (previous two years)</li>
+            <h3 class="text-3xl font-black text-slate-900 mb-6 border-b-4 border-red-500 inline-block pb-1">Mortgage Resources</h3>
+            
+            <div class="space-y-8 text-left mt-6">
+                <!-- Guide -->
+                <div>
+                    <h4 class="text-xl font-bold text-slate-900 mb-2">STEP-BY-STEP MORTGAGE GUIDE</h4>
+                    <p class="text-slate-600 mb-4">Learn about obtaining a mortgage, from application to closing, and the first months of homeownership. Provided by Freddie Mac.</p>
+                    <a href="https://sf.freddiemac.com/content/_assets/resources/pdf/update/step_by_step_mortgage_guide_english.pdf" target="_blank" class="btn-primary inline-block text-sm">Access Full Guide</a>
+                </div>
+
+                <!-- Checklist -->
+                <div class="bg-slate-50 p-6 rounded-xl border border-slate-200">
+                    <h4 class="text-xl font-bold text-slate-900 mb-4">CHECKLIST FOR APPLICANTS</h4>
+                    <ul class="grid grid-cols-1 md:grid-cols-2 gap-3 text-slate-700 font-medium">
+                        <li>• W-2 forms (Previous 2 years)</li>
                         <li>• Recent paycheck stubs (30 days)</li>
-                        <li>• Federal tax returns (two years)</li>
-                        <li>• 2-months bank statements</li>
+                        <li>• Federal tax returns (Previous 2 years)</li>
+                        <li>• 2-months bank statements (All pages)</li>
+                        <li>• Most recent 401K statement</li>
+                        <li>• Identification (Driver's License)</li>
                     </ul>
+                </div>
+
+                <!-- FICO -->
+                <div>
+                    <h4 class="text-xl font-bold text-slate-900 mb-4 uppercase">Maintaining Your FICO Score</h4>
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-4 mb-6">
+                        <div class="p-4 bg-red-50 rounded-lg"><strong class="block text-red-600 text-2xl">35%</strong> Payment History</div>
+                        <div class="p-4 bg-red-50 rounded-lg"><strong class="block text-red-600 text-2xl">30%</strong> Credit Utilization</div>
+                        <div class="p-4 bg-red-50 rounded-lg"><strong class="block text-red-600 text-2xl">15%</strong> History Length</div>
+                    </div>
+                    <ul class="space-y-2 text-slate-600 font-medium list-disc pl-5">
+                        <li>Verify your report for errors and dispute any inaccuracies.</li>
+                        <li>Setup automatic payment reminders to ensure timeliness.</li>
+                        <li>Focus on reducing debt; stop using credit cards for new purchases.</li>
+                    </ul>
+                </div>
+
+                <!-- HUD Toolkit -->
+                <div class="pt-6 border-t border-slate-200">
+                    <h4 class="text-xl font-bold text-slate-900 mb-2">HUD HOMEBUYER'S TOOLKIT</h4>
+                    <p class="text-slate-600 mb-4">Developed by the CFPB, this publication helps you make the most of your mortgage and choose the right product.</p>
+                    <a href="https://files.consumerfinance.gov/f/201503_cfpb_your-home-loan-toolkit-web.pdf" target="_blank" class="btn-primary inline-block text-sm">Access Toolkit</a>
                 </div>
             </div>
         </div>
@@ -502,14 +596,23 @@
     <script>
         document.getElementById('current-year').textContent = new Date().getFullYear();
 
-        // Calculator
+        // Calculator Logic
         document.getElementById('calculateMortgage').addEventListener('click', () => {
-            const amount = parseFloat(document.getElementById('mortgageAmount').value) - parseFloat(document.getElementById('downPayment').value);
-            const rate = (parseFloat(document.getElementById('interestRate').value) / 100) / 12;
-            const months = parseInt(document.getElementById('amortizationPeriod').value) * 12;
+            const amountInput = parseFloat(document.getElementById('mortgageAmount').value);
+            const downInput = parseFloat(document.getElementById('downPayment').value);
+            const rateInput = parseFloat(document.getElementById('interestRate').value);
+            const periodInput = parseInt(document.getElementById('amortizationPeriod').value);
 
-            if (amount <= 0 || isNaN(amount)) return;
-            const payment = rate === 0 ? amount / months : amount * (rate * Math.pow(1 + rate, months)) / (Math.pow(1 + rate, months) - 1);
+            const principal = amountInput - downInput;
+            const monthlyRate = (rateInput / 100) / 12;
+            const payments = periodInput * 12;
+
+            if (principal <= 0 || isNaN(principal)) {
+                document.getElementById('monthlyPayment').textContent = "$0.00";
+                return;
+            }
+            
+            const payment = monthlyRate === 0 ? principal / payments : principal * (monthlyRate * Math.pow(1 + monthlyRate, payments)) / (Math.pow(1 + monthlyRate, payments) - 1);
             document.getElementById('monthlyPayment').textContent = `$${payment.toLocaleString(undefined, {minimumFractionDigits: 2, maximumFractionDigits: 2})}`;
         });
 
@@ -521,16 +624,32 @@
             document.getElementById('monthlyPayment').textContent = '$0.00';
         });
 
-        // Accordions
+        // Accordion functionality
         document.querySelectorAll('.accordion-header').forEach(header => {
             header.addEventListener('click', () => {
-                header.parentElement.classList.toggle('active');
+                const item = header.parentElement;
+                item.classList.toggle('active');
             });
         });
 
-        // Modal
-        function openModal(id) { document.getElementById(id).classList.add('active'); }
-        function closeModal(id) { document.getElementById(id).classList.remove('active'); }
+        // Modal functionality
+        function openModal(id) {
+            const modal = document.getElementById(id);
+            modal.classList.add('active');
+            document.body.style.overflow = 'hidden'; // Disable scroll
+        }
+        function closeModal(id) {
+            const modal = document.getElementById(id);
+            modal.classList.remove('active');
+            document.body.style.overflow = 'auto'; // Re-enable scroll
+        }
+        
+        // Close modal on click outside
+        window.onclick = function(event) {
+            if (event.target.classList.contains('modal-overlay')) {
+                closeModal(event.target.id);
+            }
+        }
 
         // Form Logic
         const form = document.getElementById('mortgageLeadForm');
@@ -541,7 +660,7 @@
             const formData = new FormData(form);
             const json = JSON.stringify(Object.fromEntries(formData));
 
-            formMessage.classList.remove('hidden', 'text-green-400', 'text-yellow-400');
+            formMessage.classList.remove('hidden', 'text-green-300', 'text-yellow-300');
             formMessage.classList.add('text-white');
             formMessage.innerText = 'SENDING...';
 
@@ -556,6 +675,7 @@
                     formMessage.innerText = 'SUCCESS! WE WILL CONTACT YOU SHORTLY.';
                     form.reset();
                 } else {
+                    formMessage.classList.replace('text-white', 'text-yellow-300');
                     formMessage.innerText = 'ERROR. PLEASE CALL US DIRECTLY.';
                 }
             } catch (err) {
